@@ -1,7 +1,6 @@
 {
   "name": "capriccio",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,11 +16,15 @@
   },
   "homepage": "https://github.com/rnoelle/capriccio#readme",
   "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
     "body-parser": "^1.15.2",
     "cors": "^2.7.1",
     "express": "^4.14.0",
     "express-fileupload": "0.0.5",
     "express-session": "^1.14.0",
     "massive": "^2.4.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
