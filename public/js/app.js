@@ -27,6 +27,14 @@ angular.module('capriccio')
         templateUrl: 'js/views/profile.html',
         controller: 'profileCtrl'
       })
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'js/views/admin.html',
+      })
+      .state('admin.review', {
+        url: '/admin',
+        templateUrl: 'js/views/admin.html'
+      })
 
     $urlRouterProvider.otherwise('/');
   })
