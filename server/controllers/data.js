@@ -1,5 +1,5 @@
 module.exports = {
-  items = [{
+  items: [{
     id: 1,
     title: "Cello Concerto in A Minor",
     composerFirst: "Robert",
@@ -43,8 +43,14 @@ module.exports = {
     style: "romantic",
     pdfUrl: "http://hz.imslp.info/files/imglnks/usimg/2/26/IMSLP16203-SchubertD524_Der_Alpenj__ger_2nd_version.pdf",
     coverUrl: "http://www.boosey.com/imagesw/shop/product/$wm1_0x700_$_EP4353a_cov.jpg",
-    collection: "classics"
+    collection: "classics",
     price: "6.89"
+  }],
+  users: [{
+    id: 1,
+    firstName: "Joe",
+    lastName: "Felder",
+    email: "joefelder@gmail.com",
+    purchases: [2, 1, 3]
   }]
-
 }

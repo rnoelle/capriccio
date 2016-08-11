@@ -1,0 +1,40 @@
+<form class="upload-form" id="composer-upload-form"
+      action="http://localhost:4531/upload" method="post"
+      enctype="multipart/form-data">
+  <input type="text" name="title" placeholder="Title">
+  <h4>Name as you want it to appear on cover:</h4>
+  <input type="text" name="composerFirst" placeholder="First Name">
+  <input type="text" name="composerLast" placeholder="Last Name">
+  <input type="text" name="yearComposed" placeholder="Year Composed">
+  <h4>Score</h4>
+  <input type="file" name="submission-score" value="">
+  <h4>Parts</h4>
+  <input type="file" name="submission-parts" value="">
+  <h4>Cover</h4>
+  <h5>Upload or select from our <em ng-click="showTemplates()">templates</em>:</h5>
+    <div id="template-box" class="hidden">
+      <!-- Template 1 -->
+      <input type="radio" name="template" id="templ1" value="1">
+      <label for="template">
+        <img src="http://www.youwriteon.com/uploaded/image/template%208.jpg" alt="Template 1" />
+      </label>
+      <!-- Template 2 -->
+      <input type="radio" name="template" id="templ2" value="2">
+      <label for="template">
+        <img src="http://www.youwriteon.com/uploaded/image/template%208.jpg" alt="Template 2" />
+      </label>
+      <!-- Template 1 -->
+      <input type="radio" name="template" id="templ3" value="3">
+      <label for="template">
+        <img src="http://www.youwriteon.com/uploaded/image/template%208.jpg" alt="Template 3" />
+      </label>
+      <!-- Template 1 -->
+      <input type="radio" name="template" id="templ4" value="4">
+      <label for="template">
+        <img src="http://www.youwriteon.com/uploaded/image/template%208.jpg" alt="Template 4" />
+      </label>
+    </div>
+
+  <input id="cover-upload" type="file" name="cover" value="">
+  <input type="submit" name="submit" value="Submit">
+</form>

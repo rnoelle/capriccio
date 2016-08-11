@@ -17,6 +17,16 @@ angular.module('capriccio')
         templateUrl: 'js/views/product.html',
         controller: 'productCtrl'
       })
+      .state('publish', {
+        url: '/publish',
+        templateUrl: 'js/views/publish.html',
+        controller: 'publishCtrl'
+      })
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'js/views/profile.html',
+        controller: 'profileCtrl'
+      })
 
     $urlRouterProvider.otherwise('/');
   })
