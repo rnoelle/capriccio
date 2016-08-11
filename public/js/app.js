@@ -12,5 +12,11 @@ angular.module('capriccio')
         templateUrl: 'js/views/main.html',
         controller: 'mainCtrl'
       })
+      .state('productDetail', {
+        url: '/product/:id',
+        templateUrl: 'js/views/product.html',
+        controller: 'productCtrl'
+      })
+
     $urlRouterProvider.otherwise('/');
   })

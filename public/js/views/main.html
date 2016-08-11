@@ -1,3 +1,10 @@
-<h1>IT'S WORKING, IT'S WORKING</h1>
-
-{{test}}
+<section class="product-box">
+  <div class="product-card" ng-repeat="item in items" ui-sref="productDetail({id:item.id})">
+    <h3>{{item.title}}</h3>
+    <h4>{{item.composerFirst}} {{item.composerLast}}</h4>
+    <h5>composed: {{item.yearComposed}}</h5>
+    <h5>{{item.price}}</h5>
+    <img ng-src="{{item.coverUrl}}" alt="" />
+    <hr>
+  </div>
+</section>
