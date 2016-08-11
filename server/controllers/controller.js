@@ -1,8 +1,12 @@
-var data = require('./data');
+var data = require('./data')
+var app = require('../index');
+var db = app.get('db');
 
 module.exports = {
   getProducts: function (req, res, next) {
-    res.json(data.items);
+    db.read_products(function (err, products) {
+      res.json(products);
+    })
   },
   getProduct: function (req, res, next) {
     var id = req.params.id;

@@ -6,6 +6,7 @@ angular.module('capriccio')
         method: 'GET',
         url: '/products'
       }).then(function (response) {
+        console.log(response);
         return response.data;
       });
     }

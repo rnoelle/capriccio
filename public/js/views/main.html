@@ -1,10 +1,10 @@
 <section class="product-box">
   <div class="product-card" ng-repeat="item in items" ui-sref="productDetail({id:item.id})">
     <h3>{{item.title}}</h3>
-    <h4>{{item.composerFirst}} {{item.composerLast}}</h4>
-    <h5>composed: {{item.yearComposed}}</h5>
-    <h5>{{item.price}}</h5>
-    <img ng-src="{{item.coverUrl}}" alt="" />
+    <h4>{{item.composer_first}} {{item.composer_last}}</h4>
+    <h5>composed: {{item.year_composed}}</h5>
+    <h5>{{item.price_mixed}}</h5>
+    <img ng-src="{{item.cover_url}}" alt="" />
     <hr>
   </div>
 </section>
