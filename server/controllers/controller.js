@@ -29,8 +29,8 @@ module.exports = {
       var template = req.body.template;
       var cover_url = null;
     }
-    var score_url = "../public/uploads/" + req.files.submissionScore.filename;
-    var parts_url = "../public/uploads/" + req.files.submissionParts.filename;
+    var score_url = "../public/uploads/" + req.files.submissionScore[0].filename;
+    var parts_url = "../public/uploads/" + req.files.submissionParts[0].filename;
     var date_submitted = new Date();
     var title = req.body.title;
     var composerfirst = req.body.composerFirst;
