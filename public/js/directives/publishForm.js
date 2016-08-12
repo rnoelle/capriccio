@@ -1,7 +1,7 @@
 angular.module('capriccio')
   .directive('publishForm', function () {
     return {
-      templateUrl: "js/views/publishForm.html",
+      templateUrl: "js/views/directives/publishForm.html",
       controller: "publishCtrl",
       restrict: 'EA',
       link: function (scope, element, attrs) {

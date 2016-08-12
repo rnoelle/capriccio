@@ -5,9 +5,14 @@ angular.module('capriccio')
 
     $stateProvider
       .state('home', {
-        url: '/'
+        url: '/',
+        templateUrl: 'js/views/landing.html'
       })
       .state('login', {
+        url:'/login',
+        controller: 'loginCtrl'
+      })
+      .state('login.login', {
         url:'/login',
         templateUrl: 'js/views/login.html',
         controller: 'loginCtrl'
