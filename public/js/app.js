@@ -7,6 +7,16 @@ angular.module('capriccio')
       .state('home', {
         url: '/'
       })
+      .state('login', {
+        url:'/login',
+        templateUrl: 'js/views/login.html',
+        controller: 'loginCtrl'
+      })
+      .state('login.signup', {
+        url:'/signup',
+        templateUrl: 'js/views/signup.html',
+        controller: 'loginCtrl'
+      })
       .state('mainProducts', {
         url:'/main',
         templateUrl: 'js/views/main.html',
@@ -31,8 +41,12 @@ angular.module('capriccio')
         url: '/admin',
         templateUrl: 'js/views/admin.html',
       })
-      .state('admin.review', {
+      .state('admin.home', {
         url: '/admin',
+        templateUrl: 'js/views/admin.html',
+      })
+      .state('admin.review', {
+        url: '/admin/review',
         templateUrl: 'js/views/admin.html'
       })
 

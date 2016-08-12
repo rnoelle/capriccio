@@ -28,10 +28,9 @@ var port = 4531;
 app.get('/products', controller.getProducts);
 app.get('/product/:id', controller.getProduct);
 app.get('/profile/:id', controller.getProfile);
-// //Post
 
-app.post('/upload', uploads.composerUpload, function (req, res, next) {
-  console.log(req.files);
+// //Post
+app.post('/upload', uploads.composerUpload, controller.createSubmission, function (req, res, next) {
   res.send(req.body);
 });
 

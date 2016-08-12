@@ -6,7 +6,6 @@ angular.module('capriccio')
         method: 'GET',
         url: '/products'
       }).then(function (response) {
-        console.log(response);
         return response.data;
       });
     }
@@ -15,16 +14,15 @@ angular.module('capriccio')
         method: 'GET',
         url: '/product/' + id
       }).then(function (response) {
-        return response.data;
+        return response.data[0];
       })
     }
     this.getProfile = function (id) {
-      console.log(id);
       return $http({
         method: 'GET',
         url: '/profile/' + id
       }).then(function (response) {
-        return response.data;
+        return response.data[0];
       })
     }
   })

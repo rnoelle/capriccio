@@ -13,6 +13,21 @@ angular.module('capriccio')
           element.find('#template-box').addClass('hidden');
           element.find('#cover-upload').removeClass('hidden');
         }
+        scope.pdfOnly = function () {
+          $('#price-pdf').removeClass('hidden');
+          $('#price-print').addClass('hidden');
+          $('#price-mixed').addClass('hidden');
+        }
+        scope.printOnly = function () {
+          $('#price-print').removeClass('hidden');
+          $('#price-pdf').addClass('hidden');
+          $('#price-mixed').addClass('hidden');
+        }
+        scope.mixedPackage = function () {
+          $('#price-mixed').removeClass('hidden');
+          $('#price-pdf').removeClass('hidden');
+          $('#price-print').removeClass('hidden');
+        }
       }
     }
   })

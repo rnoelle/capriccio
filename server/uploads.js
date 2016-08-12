@@ -11,8 +11,8 @@ var uploading = multer({ storage: storage});
 
 module.exports = {
   composerUpload: uploading.fields([
-    {name: 'submission-score', maxCount:1},
-    {name:'submission-parts', maxCount: 1},
+    {name: 'submissionScore', maxCount:1},
+    {name:'submissionParts', maxCount: 1},
     {name:'cover', maxCount: 1}
   ]),
   adminUpload: {}
