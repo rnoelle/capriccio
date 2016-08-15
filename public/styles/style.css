@@ -7,3 +7,7 @@
     border-color: green;
     outline-color: green;
 }
+
+.hidden {
+  display: none;
+}

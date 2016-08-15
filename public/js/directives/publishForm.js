@@ -5,6 +5,10 @@ angular.module('capriccio')
       controller: "publishCtrl",
       restrict: 'EA',
       link: function (scope, element, attrs) {
+        if (scope.currentUser.admin == true) {
+          console.log(scope.currentUser.admin);
+          $('.composer-info-hidden').removeClass('hidden');
+        }
         scope.showTemplates = function () {
           $('#cover-upload').addClass('hidden');
           $('#template-box').removeClass('hidden');
