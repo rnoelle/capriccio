@@ -71,5 +71,22 @@ module.exports = {
         res.send('updated');
       });
     }
+  },
+  createComposer: function (req, res, next) {
+    var first_name = req.body.first_name;
+    var last_name = req.body.last_name;
+    var year_born = req.body.year_born;
+    var year_died = req.body.year_died;
+    var country_of_origin = req.body.country_of_origin;
+    var user_id = req.body.user_id;
+    db.createComposer(first_name, last_name, year_born,
+      year_died, country_of_origin, user_id, function (err, resp) {
+        res.send(resp)
+      })
+  },
+  updateUserRegisteredComposer: function (req, res, next) {
+    db.update_user_registered_composer(req.body.user_id, function (err, resp) {
+      res.send(resp)
+    })
   }
 }

@@ -1,7 +1,7 @@
 angular.module('capriccio', ['ui.router']);
 
 angular.module('capriccio')
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $stateProvider
       .state('home', {
@@ -35,6 +35,11 @@ angular.module('capriccio')
       .state('publish', {
         url: '/publish',
         templateUrl: 'js/views/publish.html',
+        controller: 'publishCtrl'
+      })
+      .state('composer', {
+        url: '/publish/composer',
+        templateUrl: 'js/views/publish-composer.html',
         controller: 'publishCtrl'
       })
       .state('profile', {
@@ -82,6 +87,6 @@ angular.module('capriccio')
         url: '/analysis',
         templateUrl: 'js/views/admin/admin-analysis.html'
       })
-
+    $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/');
   })

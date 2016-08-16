@@ -1,18 +1,20 @@
 angular.module('capriccio')
-  .controller('publishCtrl', function ($scope, dataService) {
+  .controller('publishCtrl', function ($scope, $location, dataService) {
     $scope.currentUser = {
       admin: false,
-      first_name: "Bob",
-      last_name: "Zales",
+      composer_first_name: "Bob",
+      composer_last_name: "Zales",
       country: "United States",
-      birth: "1989"
+      birth: "1989",
+      registered_composer: false
     }
-    if ($scope.currentUser.admin = false) {
-      $scope.first_name = $scope.currentUser.first_name;
-      $scope.first_name = $scope.currentUser.last_name;
-      $scope.country = $scope.currentUser.country;
-      $scope.birth = $scope.currentUser.birth;
-      $scope.death = null;
-
+    if ($scope.currentUser.registered_composer == false) {
+      $location.path('/publish/composer');
+      $location.replace();
     }
+    $scope.first_name = $scope.currentUser.composer_first_name;
+    $scope.last_name = $scope.currentUser.composer_last_name;
+    $scope.country = $scope.currentUser.country;
+    $scope.birth = $scope.currentUser.birth;
+    $scope.death = null;
   });
