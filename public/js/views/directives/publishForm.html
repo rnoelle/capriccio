@@ -1,22 +1,32 @@
 <form class="upload-form" id="composer-upload-form"
       action="http://localhost:4531/upload" method="post"
       enctype="multipart/form-data">
+
   <input type="text" name="title" placeholder="Title">
-  <h4>Name as you want it to appear on cover:</h4>
-  <input type="text" name="composerFirst" placeholder="First Name">
-  <input type="text" name="composerLast" placeholder="Last Name">
+
   <input type="text" name="yearComposed" placeholder="Year Composed">
+
+  <!-- admin -->
   <div class="composer-info-hidden hidden">
+    <h4>Name as you want it to appear on cover:</h4>
+    <input type="text" name="composerFirst" ng-model="first_name">
+    <input type="text" name="composerLast" ng-model="last_name">
     <h5>Composer Country of Origin</h3>
     <input type="text" name="country_of_origin" ng-model="country">
     <h5>Composer Year of Birth</h3>
     <input type="text" name="year_born" ng-model="birth">
+    <h5>Composer Year of Death</h3>
+    <input type="text" name="year_born" ng-model="death">
   </div>
   <input class="hidden" type="text" name="admin" ng-model="currentUser.admin">
+
+  <!-- Files -->
   <h4>Score</h4>
   <input type="file" name="submissionScore" value="">
+
   <h4>Parts</h4>
   <input type="file" name="submissionParts" value="">
+
   <h4>Cover</h4>
   <h5>Upload or select from our <em ng-click="showTemplates()">templates</em>:</h5>
     <div id="template-box" class="hidden">
@@ -30,19 +40,22 @@
       <label for="templ2">
         <img src="http://www.youwriteon.com/uploaded/image/template%208.jpg" alt="Template 2" />
       </label>
-      <!-- Template 1 -->
+      <!-- Template 3 -->
       <input type="radio" name="template" id="templ3" value="templ3">
       <label for="templ3">
         <img src="http://www.youwriteon.com/uploaded/image/template%208.jpg" alt="Template 3" />
       </label>
-      <!-- Template 1 -->
+      <!-- Template 4 -->
       <input type="radio" name="template" id="templ4" value="templ4">
       <label for="templ4">
         <img src="http://www.youwriteon.com/uploaded/image/template%208.jpg" alt="Template 4" />
       </label>
+
+      <button type="button" ng-click="hideTemplates()">Upload instead</button>
     </div>
   <input id="cover-upload" type="file" name="cover" value="">
-  <!-- Hidden -->
+
+
   <!-- package -->
   <h4>In which formats would you like this offered?</h4>
   <input type="radio" name="package" value="pdf" ng-click="pdfOnly()">PDF Only</input>
@@ -52,6 +65,8 @@
   <input id="price-pdf" class="hidden" type="text" name="price_pdf" placeholder="Price for PDF">
   <input id="price-print" class="hidden" type="text" name="price_print" placeholder="Price for Print">
   <input id="price-mixed" class="hidden" type="text" name="price_mixed" placeholder="Price for Bundle">
+
+
   <!-- submit -->
   <input type="submit" name="submit" value="Submit">
 </form>

@@ -9,4 +9,6 @@ angular.module('capriccio')
       })
     }
     getProducts();
+    $scope.mainFilter = {};
+
   })

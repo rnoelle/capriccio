@@ -33,8 +33,10 @@ app.get('/profile/:id', controller.getProfile);
 app.post('/upload', uploads.composerUpload, controller.createSubmission, function (req, res, next) {
   res.send(req.body);
 });
-
-
+app.post('/update', uploads.adminUpdate, controller.updateWork, function (req, res, next) {
+  console.log(req.body);
+  res.send(req.body);
+});
 
 
 

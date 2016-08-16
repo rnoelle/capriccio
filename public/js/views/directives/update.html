@@ -1,0 +1,34 @@
+<img src="{{work.cover_url}}" alt="cover" width="40%" height="600px"/>
+<iframe ng-src="{{productUrl}}" width="40%" height="600px"></iframe>
+<hr>
+<form class="update-form" id="admin-update-form"
+      action="http://localhost:4531/update" method="post"
+      enctype="multipart/form-data">
+  <input type="text" name="id" ng-model="work.id">
+  <input type="text" name="title" ng-model="work.title">
+
+  <!-- Files -->
+  <h4>Select a Replacement Score File</h4>
+  <input type="file" name="submissionScore" value="">
+
+  <h4>Select a Replacement Parts File</h4>
+  <input type="file" name="submissionParts" value="">
+
+  <h4>Cover</h4>
+  <input id="cover-upload" type="file" name="cover" value="">
+
+
+  <!-- package -->
+  <h4>In which formats would you like this offered?</h4>
+  <input type="radio" name="package" value="pdf" ng-click="pdfOnly()">PDF Only</input>
+  <input type="radio" name="package" value="print" ng-click="printOnly()">Print Only</input>
+  <input type="radio" name="package" value="mixed" ng-click="mixedPackage()">PDF and Print</input>
+  <!-- price boxes -->
+  <input id="price-pdf" class="hidden" type="text" name="price_pdf" placeholder="Price for PDF">
+  <input id="price-print" class="hidden" type="text" name="price_print" placeholder="Price for Print">
+  <input id="price-mixed" class="hidden" type="text" name="price_mixed" placeholder="Price for Bundle">
+
+
+  <!-- submit -->
+  <input type="submit" name="submit" value="Submit">
+</form>

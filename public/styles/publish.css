@@ -1,6 +1,7 @@
 .hidden {
   display: none;
 }
+
 #template-box input {
   visibility: hidden;
   position: absolute;

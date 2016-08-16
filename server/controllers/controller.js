@@ -60,7 +60,16 @@ module.exports = {
       price_mixed, package, accepted, date_accepted, function (err, resp) {
         console.log(err);
         console.log(resp);
-        res.send('submitted')
+        res.send('submitted');
       });
+  },
+  updateWork: function (req, res, next) {
+    var id = req.body.id;
+    console.log(req.body);
+    if (req.body.title) {
+      db.update_work_title(id, req.body.title, function (err, resp) {
+        res.send('updated');
+      });
+    }
   }
 }

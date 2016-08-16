@@ -1,7 +1,43 @@
 <h3>Work ID</h3>
-<form class="" ng-submit="getProduct">
-  <input type="text" ngModel="deleteId">
+<form class="" ng-submit="getProduct()">
+  <input type="text" ng-model="deleteId">
 </form>
 
+<section class="work-card hidden">
+  <h4>{{work.title}}</h4>
+  <h4>{{work.composer_first}} {{work.composer_last}}</h4>
+  <img src="{{work.cover_url}}" alt="cover" width="40%" height="600px"/>
+  <iframe ng-src="{{productUrl}}" width="40%" height="600px"></iframe>
 
-<button type="button" ng-click="delete-work">Delete</button>
+<button type="button" ng-click="hideDeleteButton()" data-toggle="modal" data-target="#delete-confirm">Delete</button>
+
+<!-- Modal -->
+<div id="delete-confirm" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete Work</h4>
+      </div>
+      <div class="modal-body flex delete-before">
+        <h3>Are you sure you would like to remove this work from the inventory?</h3>
+      </div>
+      <div class="modal-body flex delete-after hidden">
+        <h3>Work has been removed from the inventory.</h3>
+      </div>
+      <div class="modal-footer">
+        <div class="delete-before">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" ng-click="removeWork()">Delete</button>
+        </div>
+        <div class="delete-after hidden">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Accept</button>
+        </div>  
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</section>
