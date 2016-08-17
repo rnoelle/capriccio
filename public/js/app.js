@@ -87,6 +87,6 @@ angular.module('capriccio')
         url: '/analysis',
         templateUrl: 'js/views/admin/admin-analysis.html'
       })
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/');
   })

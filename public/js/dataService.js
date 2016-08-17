@@ -17,12 +17,13 @@ angular.module('capriccio')
         return response.data[0];
       })
     }
-    this.getProfile = function (id) {
+    this.getProfile = function () {
       return $http({
         method: 'GET',
-        url: '/profile/' + id
+        url: '/profiles'
       }).then(function (response) {
-        return response.data[0];
+        console.log(response);
+        return response.data;
       })
     }
     this.createComposer = function (first_name, last_name,

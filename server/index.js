@@ -11,9 +11,13 @@ var multer = require('multer');
 var config = require('./config')
 //Setup
 var app = module.exports = express();
+app.use(express.static('../public'));
 var connectionString = "postgres://postgres:Color45@localhost/capricciodb"
 var massiveInstance = massive.connectSync({connectionString: connectionString});
 app.set('db', massiveInstance);
+var db = app.get('db');
+
+app.use(bodyParser.json());
 app.use(session({
    secret: config.sessionSecret,
    resave: false,
@@ -24,9 +28,31 @@ app.use(passport.session());
 passport.use(new FacebookStrategy({
   clientID: config.facebookID,
   clientSecret: config.facebookSecret,
-  callbackURL: 'http://localhost:4531/auth/facebook/callback'
-}, function (token, refreshToken, profile, done) {
-  return done(null, profile);
+  callbackURL: 'http://localhost:4531/auth/facebook/callback',
+  profileFields: ['id', 'displayName', 'photos', 'email']
+}, function (accessToken, refreshToken, profile, done) {
+  db.getUserByFacebookId([profile.id], function (err, user) {
+    user = user[0];
+    if (!user) {
+      console.log('Creating User');
+      console.log(profile);
+      var first_name;
+      var last_name;
+      var names = profile.displayName.split(' ');
+      first_name = names.shift();
+      last_name = names.join(' ');
+      var date_joined = new Date();
+      db.users.insert({first_name: first_name, last_name: last_name, email:profile.email,
+        picture_url: profile.photos[0].value, date_joined: date_joined}, function (err, user) {
+        console.log('User Created', user);
+        db.createFacebookKey(user.id, profile.id, function (err, key) {
+          return done(err, user);
+        });
+      })
+    } else {
+      return done(err, user);
+    }
+  })
 }))
 
 //Controllers
@@ -34,9 +60,7 @@ var uploads = require('./uploads');
 var controller = require('./controllers/controller');
 
 //Middleware
-app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('../public'));
 
 
 //Endpoints
@@ -44,32 +68,22 @@ app.use(express.static('../public'));
 // //Get
 app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-  successRedirect: '/main',
+  successRedirect: '/',
   failureRedirect: '/login'
 }));
 passport.serializeUser(function (user, done) {
+  console.log(user);
   done(null, user);
 });
 passport.deserializeUser(function (obj, done) {
+  console.log(obj);
   done(null, obj);
 });
-app.get('/', function(req, res, next) {
-  var sess = req.session
-  if (sess.views) {
-    sess.views++
-    res.setHeader('Content-Type', 'text/html')
-    res.write('<p>views: ' + sess.views + '</p>')
-    res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
-    res.end()
-  } else {
-    sess.views = 1
-    res.end('welcome to the session demo. refresh!')
-  }
-})
+
      //End Authentication
 app.get('/products', controller.getProducts);
 app.get('/product/:id', controller.getProduct);
-app.get('/profile/:id', controller.getProfile);
+app.get('/profiles', controller.getProfile);
 
 // //Post
 app.post('/upload', uploads.composerUpload, controller.createSubmission, function (req, res, next) {

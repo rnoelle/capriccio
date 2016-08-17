@@ -1,9 +1,10 @@
 angular.module('capriccio')
   .controller('profileCtrl', function ($scope, dataService) {
-    function getProfile(id) {
-      dataService.getProfile(id).then(function (response) {
+    function getProfile() {
+      dataService.getProfile().then(function (response) {
+        console.log(response);
         $scope.user = response;
       })
     }
-    getProfile(1);
+    getProfile();
   })
