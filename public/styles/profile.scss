@@ -1,0 +1,18 @@
+.profile-self {
+  display: flex;
+  flex-direction: row;
+}
+.profile-avatar {
+  -webkit-clip-path: circle(50% at center);
+  clip-path: circle(50% at center);
+  height: 4em;
+  width: 4em;
+  display: inline-block;
+  margin-right: 5px;
+}
+.profile-aside {
+  margin-top: 0;
+  h2 {
+    display: inline-block;
+  }
+}

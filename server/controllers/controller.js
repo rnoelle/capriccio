@@ -15,7 +15,7 @@ module.exports = {
   },
   getProfile: function (req, res, next) {
     console.log(req.user, "server controller");
-    var id = req.user;
+    var id = req.user.id;
     db.read_user(id, function (err, user) {
       res.json(user);
     })

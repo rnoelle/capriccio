@@ -5,7 +5,7 @@ angular.module('capriccio')
 
     $stateProvider
       .state('home', {
-        url: '/',
+        url: '/landing',
         templateUrl: 'js/views/landing.html'
       })
       .state('login', {
@@ -88,5 +88,5 @@ angular.module('capriccio')
         templateUrl: 'js/views/admin/admin-analysis.html'
       })
     // $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/landing');
   })

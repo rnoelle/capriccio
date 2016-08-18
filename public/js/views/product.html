@@ -1,8 +1,27 @@
-<h1>{{product.title}}</h1>
-<h2>{{product.composer_first}} {{product.composer_last}}</h2>
-<h3>{{product.price_mixed}}</h3>
-<img ng-src="{{product.cover_url}}" alt="" />
+<a ui-sref="mainProducts">
+  <h3 class="back">
+    <span class="fa fa-chevron-left" aria-hidden="true"></span>
+     Back
+  </h3>
+</a>
 
-<!-- <iframe frameborder="0" ng-src="{{productUrl}}" width="600" height="300"></iframe> -->
+<section class="product-detail-wrapper">
+  <div class="img-wrapper" back-img="{{product.cover_url}}">
+      <img ng-src="{{product.preview_url}}" alt="" />
+      <div class="preview-suggestion">
+        <h4>Mouse Over to Preview</h4>
+      </div>
+  </div>
+  <div class="product-info-wrapper">
+    <h1>{{product.title}}</h1>
+    <h2>{{product.composer_first}} {{product.composer_last}}</h2>
+    <h3>{{product.price_mixed}}</h3>
+    <!-- <recordings work="product.id"></recordings> -->
+    <button type="button" name="button">Add to Cart</button>
 
-<button type="button" name="button">Add to Cart</button>
+  </div>
+
+  <!-- <iframe frameborder="0" ng-src="{{productUrl}}" width="600" height="300"></iframe> -->
+
+
+</section>

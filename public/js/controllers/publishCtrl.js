@@ -1,12 +1,7 @@
 angular.module('capriccio')
   .controller('publishCtrl', function ($scope, $location, dataService) {
-    $scope.currentUser = {
-      admin: false,
-      composer_first_name: "Bob",
-      composer_last_name: "Zales",
-      country: "United States",
-      birth: "1989",
-      registered_composer: false
+    this.getProfile = function () {
+      
     }
     if ($scope.currentUser.registered_composer == false) {
       $location.path('/publish/composer');

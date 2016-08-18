@@ -1,20 +1,28 @@
 <aside class="side-nav">
-  <input type="text" ng-model="mainFilter.title" placeholder="Title">
-  <input type="text" ng-model="mainFilter.composer_last" placeholder="Composer">
-  <!-- Package Parameter -->
-  <input type="radio" ng-model="mainFilter.package" value="mixed">Bundle - Print & PDF</input>
-  <input type="radio" ng-model="mainFilter.package" value="print">Print Only</input>
-  <input type="radio" ng-model="mainFilter.package" value="pdf">PDF Only</input>
-  <input type="radio" ng-model="mainFilter.package" value="">All</input>
+    <h4>Search by:</h4>
+    <input type="text" ng-model="mainFilter.title" placeholder="Title">
+    <input type="text" ng-model="mainFilter.composer_last" placeholder="Composer">
+    <!-- Package Parameter -->
+    <section class="aside-radios">
+      <label><input type="radio" ng-model="mainFilter.package" value="mixed"> Bundle - Print & PDF</input></label>
+      <label><input type="radio" ng-model="mainFilter.package" value="print"> Print Only</input></label>
+      <label><input type="radio" ng-model="mainFilter.package" value="pdf"> PDF Only</input></label>
+      <label><input type="radio" ng-model="mainFilter.package" value=""> All</input></label>
+    </section>
 </aside>
+
+
 <section class="product-box">
   <div class="product-card" ng-repeat="item in items | filter : mainFilter"
       ui-sref="productDetail({id:item.id})">
-    <h3>{{item.title}}</h3>
-    <h4>{{item.composer_first}} {{item.composer_last}}</h4>
-    <h5>composed: {{item.year_composed}}</h5>
-    <h5>{{item.price_mixed}}</h5>
-    <img ng-src="{{item.cover_url}}" alt="" />
-    <hr>
+      <div class="product-card-wrapper hovereffect">
+        <img ng-src="{{item.cover_url}}" alt="" />
+        <div class="overlay">
+          <h2>{{item.title}}</h3>
+          <h4>{{item.composer_first}} {{item.composer_last}}</h4>
+          <h5>composed: {{item.year_composed}}</h5>
+          <h5>{{item.price_mixed}}</h5>
+        </div>
+      </div>
   </div>
 </section>

@@ -1,4 +1,11 @@
-<h1>{{user.first_name}} {{user.last_name}}</h1>
+<landing-nav></landing-nav>
+<aside class="profile-aside" >
+  <div class="profile-self">
+    <img class="profile-avatar" ng-src="{{user.picture_url}}" alt="avatar" />
+    <h2>{{user.first_name}} {{user.last_name}}</h2>
+  </div>
+</aside>
+
 <h3>Purchases:</h3>
 <div class="purchases-box" ng-repeat="purchase in purchases">
   <h4>{{purchase.title}}</h4>

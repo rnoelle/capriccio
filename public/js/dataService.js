@@ -22,8 +22,7 @@ angular.module('capriccio')
         method: 'GET',
         url: '/profiles'
       }).then(function (response) {
-        console.log(response);
-        return response.data;
+        return response.data[0];
       })
     }
     this.createComposer = function (first_name, last_name,

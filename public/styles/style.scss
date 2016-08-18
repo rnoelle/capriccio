@@ -1,0 +1,58 @@
+/*.ng-invalid {
+    border-color: rgb(226, 85, 85);
+    outline-color: rgb(226, 85, 85);
+}
+
+.ng-valid {
+    border-color: rgb(125, 186, 112);
+    outline-color: rgb(125, 186, 112);
+}*/
+
+.hidden {
+  display: none;
+}
+.filler {
+  width: 100%;
+  height: 10vh;
+}
+.main-nav {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0px 5px 1px #ccc;
+  position:absolute;
+  width: 100%;
+  img {
+    height: 9vh;
+  }
+}
+
+landing-nav {
+  position: absolute;
+  top: 4vh;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  li {
+    list-style: none;
+  }
+  a {
+    margin-right: 15px;
+    color: #777;
+    text-transform: uppercase;
+    div {
+      width: 100%;
+      height: .25em;
+      background-color: #3fd54f;
+      visibility: hidden;
+    }
+  }
+}
+landing-nav a:hover, landing-nav a:focus {
+  color: #555;
+  text-decoration: none;
+}
+landing-nav a:hover div, .active div{
+  visibility: visible;
+}
