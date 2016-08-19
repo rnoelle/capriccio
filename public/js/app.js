@@ -3,6 +3,19 @@ angular.module('capriccio', ['ui.router']);
 angular.module('capriccio')
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
+    var adminResolve = {
+        security: (dataService, $state) => {
+          return dataService.getAuth()
+              .catch((err) => {
+                  console.log("Unauthorized: ", err);
+                  if (err.status === 401) {
+                      $state.go('login');
+                  }
+              });
+            }
+          }
+
+
     $stateProvider
       .state('home', {
         url: '/landing',
@@ -50,43 +63,54 @@ angular.module('capriccio')
       .state('admin', {
         url: '/admin',
         templateUrl: 'js/views/admin/admin.html',
+        resolve: adminResolve
       })
       .state('admin.home', {
         url: '/home',
         templateUrl: 'js/views/admin/admin-home.html',
+        resolve: adminResolve
       })
       .state('admin.inventory', {
         url: '/inventory',
         templateUrl: 'js/views/admin/admin-inventory.html',
-        controller: 'adminInventory'
+        controller: 'adminInventory',
+        resolve: adminResolve
       })
       .state('admin.inventory.update', {
         url: '/update',
         templateUrl: 'js/views/admin/admin-inventory-update.html',
-        controller: 'adminInventory'
+        controller: 'adminInventory',
+        resolve: adminResolve
       })
       .state('admin.inventory.add', {
         url: '/add',
         templateUrl: 'js/views/admin/admin-inventory-add.html',
-        controller: 'adminInventory'
+        controller: 'adminInventory',
+        resolve: adminResolve
       })
       .state('admin.inventory.delete', {
         url: '/delete',
         templateUrl: 'js/views/admin/admin-inventory-delete.html',
-        controller: 'adminInventory'
+        controller: 'adminInventory',
+        resolve: adminResolve
       })
       .state('admin.review', {
         url: '/review',
-        templateUrl: 'js/views/admin/admin-review.html'
+        templateUrl: 'js/views/admin/admin-review.html',
+        resolve: adminResolve
       })
       .state('admin.users', {
         url: '/users',
-        templateUrl: 'js/views/admin/admin-users.html'
+        templateUrl: 'js/views/admin/admin-users.html',
+        resolve: adminResolve
       })
       .state('admin.analysis', {
         url: '/analysis',
-        templateUrl: 'js/views/admin/admin-analysis.html'
+        templateUrl: 'js/views/admin/admin-analysis.html',
+        resolve: adminResolve
       })
+
+
     // $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/landing');
   })

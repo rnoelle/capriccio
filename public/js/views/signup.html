@@ -1,8 +1,9 @@
 <form novalidate name="registrationForm" class="form"
-    ng-submit="loginCtrl.register(registrationForm.$valid)">
+    ng-submit="register(true)">
   <input type="text" name="firstName" placeholder="First Name" ng-model="first_name" required>
   <input type="text" name="lastName" placeholder="Last Name" ng-model="last_name" required>
   <input type="text" name="email" placeholder="Email" ng-model="email" required>
   <input type="password" name="password" placeholder="Password" ng-model="password" required>
   <input type="password" name="confirmPassword" compare-to="password" ng-model="confirmPassword" placeholder="Confirm Password" required>
+  <input type="submit" name="submit" value="Signup">
 </form>
