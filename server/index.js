@@ -53,7 +53,8 @@ passport.use(new FacebookStrategy({
   callbackURL: 'http://localhost:4531/auth/facebook/callback',
   profileFields: ['id', 'displayName', 'photos', 'email']
 }, function (accessToken, refreshToken, profile, done) {
-  db.getUserByFacebookId([profile.id.toString()], function (err, user) {
+  db.getUserByFacebookId([profile.id], function (err, user) {
+    console.log(user);
     if (user) user = user[0];
     if (!user) {
       console.log('Creating User');
@@ -101,7 +102,7 @@ passport.deserializeUser(function (obj, done) {
   if (obj[0]) {
     obj = obj[0];
   }
-  console.log('this is the object', obj);
+  console.log('deserialized', obj.first_name, obj.last_name, 'email:', obj.email);
   done(null, obj);
 });
 app.get('/userauth', authCtrl.getAuth);
@@ -114,9 +115,9 @@ app.get('/products', controller.getProducts);
 app.get('/product/:id', controller.getProduct);
 app.get('/profiles', controller.getProfile);
 
-// //Post
-// // Local Auth
-app.post('/login', passport.authenticate('local', {failureRedirect: '/login'}),
+//Post
+// //Local Auth
+app.post('/login', passport.authenticate('local', {failureRedirect: '/login', successRedirect: '/'}),
   function(req, res) {
     console.log('logged in!');
     res.status(200).send();

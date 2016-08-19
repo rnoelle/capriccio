@@ -13,7 +13,19 @@ angular.module('capriccio')
                   }
               });
             }
-          }
+          };
+
+          var composerResolve = {
+              security: (dataService, $state) => {
+                return dataService.getAuth()
+                    .catch((err) => {
+                        console.log("Unauthorized: ", err);
+                        if (err.status === 401) {
+                            $state.go('login');
+                        }
+                    });
+                  }
+                };
 
 
     $stateProvider
@@ -48,7 +60,20 @@ angular.module('capriccio')
       .state('publish', {
         url: '/publish',
         templateUrl: 'js/views/publish.html',
-        controller: 'publishCtrl'
+        controller: 'publishCtrl',
+        resolve: {
+            security: (dataService, $state) => {
+              return dataService.getComp()
+                  .catch((err) => {
+                      console.log("Unauthorized: ", err);
+                      if (err.status === 401) {
+                          $state.go('login');
+                      } else if (err.status === 303) {
+                        $state.go('composer');
+                      }
+                  });
+                }
+              }
       })
       .state('composer', {
         url: '/publish/composer',
@@ -58,7 +83,18 @@ angular.module('capriccio')
       .state('profile', {
         url: '/profile',
         templateUrl: 'js/views/profile.html',
-        controller: 'profileCtrl'
+        controller: 'profileCtrl',
+        resolve: {
+            security: (dataService, $state) => {
+              return dataService.getAuth()
+                  .catch((err) => {
+                      console.log("Unauthorized: ", err);
+                      if (err.status === 401) {
+                          $state.go('login.login');
+                      }
+                  });
+                }
+              }
       })
       .state('admin', {
         url: '/admin',

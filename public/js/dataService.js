@@ -26,8 +26,8 @@ angular.module('capriccio')
           password: password
         }
       }).then(function (response) {
-        console.log('yassss');
-        return respons;
+        console.log(response, 'is the response');
+        return response;
       })
     }
     this.getAuth = function () {
@@ -40,12 +40,14 @@ angular.module('capriccio')
         return response;
       })
     }
+    this.getComp = function () {
+      
+    }
     this.getProfile = function () {
       return $http({
         method: 'GET',
         url: '/profiles'
       }).then(function (response) {
-        console.log(response);
         return response.data[0];
       });
     }

@@ -6,9 +6,13 @@ angular.module('capriccio')
       link: function (scope, element, attrs) {
 
       },
-      controller: function ($scope, dataService) {
+      controller: function ($scope, $state, dataService) {
         $scope.localSignin = function () {
-          dataService.localSignin($scope.email, $scope.password);
+          dataService.localSignin($scope.email, $scope.password).then(function (response) {
+            if (response.status == 200) {
+              $state.go('mainProducts');
+            }
+          });
         }
       }
     }

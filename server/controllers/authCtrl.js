@@ -32,7 +32,9 @@ module.exports = {
       });
     },
     facebookSignin: function (accessToken, refreshToken, profile, done) {
-      db.getUserByFacebookId([profile.id.toString()], function (err, user) {
+      console.log('facebook id', profile.id);
+      db.getUserByFacebookId([profile.id], function (err, user) {
+        console.log('facebook id', profile.id);
         if (user) user = user[0];
         if (!user) {
           console.log('Creating User');
@@ -58,30 +60,24 @@ module.exports = {
       })
     },
     getAuth: function (req, res, next) {
-      console.log(req.user, "getting auth");
+      console.log(req.user, "server getting auth");
       if (!req.user) {
+        res.status(401).send('please login');
+        return;
+      }
+      if (!req.user.admin) {
         res.status(403).send('unauthorized');
       }
-      var auth = {};
-      if (req.user.admin == true) {
-        auth.admin = true;
-      } else {
-        auth.admin = false;
-      }
-      if (req.user.registered_composer == true) {
-        auth.registered_composer = true;
-      } else {
-        auth.registered_composer = false;
-      }
-      res.json(auth);
+      res.status(200).send('');
     },
   isComposer: function (req, res, next) {
-    if(!req.user) {
-      console.log('error-log in');
-      res.redirect('/login');
+    if (!req.user) {
+      res.status(401).send('please login');
+      return;
     }
-    if (req.user.registered_composer == true) {
-      return next();
+    if (!req.user.registered_composer == true) {
+      res.status(303).send('unauthorized')
+      return;
     }
     res.redirect('/composer');
   }

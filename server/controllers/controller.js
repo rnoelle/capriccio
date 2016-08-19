@@ -17,14 +17,18 @@ module.exports = {
 
 
   getProfile: function (req, res, next) {
-    console.log("getting profile");
-    console.log(req.user);
-    var id = req.user.id;
-    console.log('id', id);
-    db.read_user(id, function (err, user) {
-      console.log('got this user', user);
-      res.json(user);
-    })
+    if (req.user) {
+      console.log("getting profile", req.user.id, req.user.first_name);
+      var id = req.user.id;
+      db.read_user(id, function (err, user) {
+        if (err) {
+          res.send(err)
+        }
+        res.json(user);
+      })
+    } else {
+      res.status(401).send('must login')
+    }
   },
 
   createSubmission: function (req, res, next) {
