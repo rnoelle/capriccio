@@ -57,6 +57,26 @@ angular.module('capriccio')
         templateUrl: 'js/views/product.html',
         controller: 'productCtrl'
       })
+      .state('checkout', {
+        url: '/checkout',
+        templateUrl: 'js/views/checkout.html',
+        controller: 'checkoutCtrl',
+        resolve: {
+            security: (dataService, $state) => {
+              return dataService.getAuth()
+                  .catch((err) => {
+                      console.log("Unauthorized: ", err);
+                      if (err.status === 401) {
+                          $state.go('login.login');
+                      }
+                  });
+                }
+              }
+      })
+      // .state('checkout.stripe', {
+      //   url: '/stripe/:total',
+      //   controller: 'stripeCtrl'
+      // })
       .state('publish', {
         url: '/publish',
         templateUrl: 'js/views/publish.html',
@@ -67,7 +87,7 @@ angular.module('capriccio')
                   .catch((err) => {
                       console.log("Unauthorized: ", err);
                       if (err.status === 401) {
-                          $state.go('login');
+                          $state.go('login.login');
                       } else if (err.status === 303) {
                         $state.go('composer');
                       }
@@ -78,7 +98,7 @@ angular.module('capriccio')
       .state('composer', {
         url: '/publish/composer',
         templateUrl: 'js/views/publish-composer.html',
-        controller: 'publishCtrl'
+        controller: 'composerCtrl'
       })
       .state('profile', {
         url: '/profile',

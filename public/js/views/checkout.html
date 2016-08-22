@@ -1,0 +1,38 @@
+<section class="review-order-box">
+    <h2>Your Order:</h2>
+    <div class="review-order-card" ng-repeat="item in order">
+        <div class="remove-button" ng-click="removeItem(item.id)">
+            <h6>Remove Item <i class="fa fa-times"></i></h6>
+        </div>
+        <div class="review-order-card-info">
+            <img ng-src="{{item.cover_url}}" alt="" />
+            <div class="review-info-info">
+                <h4>{{item.title}}</h4>
+                <h5>{{item.composer_first}} {{item.composer_last}}</h5>
+                <h5>{{item.price_mixed}}</h5>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h4>Total: ${{orderTotal}}</h4>
+    <section>
+        <form class="address-form">
+            <h4>Shipping Information:</h4>
+            <input type="text" ng-model="address1" placeholder="address1">
+            <input type="text" ng-model="address2" placeholder="address2">
+            <input type="text" ng-model="apptNum" placeholder="apptNum">
+            <input type="text" ng-model="city" placeholder="city">
+            <input type="text" ng-model="state" placeholder="state">
+            <input type="text" ng-model="zipcode" placeholder="zipcode">
+            <input type="text" ng-model="country" placeholder="country">
+        </form>
+    </section>
+    <button type="button" ng-click="checkout()">Pay Now</button>
+</section>
+
+
+<!-- <div ui-view>
+    <div ui-view="content">
+
+    </div>
+</div> -->

@@ -11,17 +11,39 @@ angular.module('capriccio')
             $('#nav-profile-pic').removeClass('hidden');
           }
         })
+        scope.$watch('userCart', function (value) {
+          if (!value) {
+            scope.userCart = [{title: 'Cart empty'}];
+          } else if (value[0].id) {
+            $('#checkout-link').removeClass('hidden');
+          }
+        })
       },
-      controller: function ($scope, $location, dataService) {
-        this.getProfile = function () {
-          dataService.getProfile().then(function (response) {
-            console.log('got this:', response);
-            if (response.picture_url) {
-              $scope.picture_url = response.picture_url;
+      controller: function ($scope, $rootScope, $location, dataService) {
+        this.getCart = function () {
+          dataService.getCart().then(function (response) {
+            if (!response.data) {
+                $scope.cartLength = undefined;
+                $scope.userCart = [{title: 'Nothing in cart'}]
+            } else {
+              $scope.cartLength = response.data.length;
             }
+            $scope.userCart = response.data;
+
           })
+
         }
-        this.getProfile();
+        this.getCart();
+
+        $rootScope.$watch('picture_url', function (value) {
+          $scope.picture_url = value;
+        })
+        $rootScope.$watch('cart', function (value) {
+          if (value) {
+            $scope.cartLength = value.length;
+            $scope.userCart = value;
+          }
+        })
         $scope.getClass = function (path) {
             return ($location.path().substr(0, path.length) === path) ? 'active' : '';
           }

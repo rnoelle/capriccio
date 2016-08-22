@@ -106,6 +106,8 @@ passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
 app.get('/userauth', authCtrl.getAuth);
+app.get('/usercomp', authCtrl.getComp);
+
 app.get('/auth/logout', function(req, res) {
   req.logout();
   res.redirect('/');
@@ -114,6 +116,8 @@ app.get('/auth/logout', function(req, res) {
 app.get('/products', controller.getProducts);
 app.get('/product/:id', controller.getProduct);
 app.get('/profiles', controller.getProfile);
+app.get('/cart', controller.getCart);
+
 
 //Post
 // //Local Auth
@@ -130,8 +134,11 @@ app.post('/update', uploads.adminUpdate, controller.updateWork, function (req, r
   res.send(req.body);
 });
 app.post('/users', authCtrl.addLocalUser);
-app.post('/composer', controller.createComposer, controller.updateUserRegisteredComposer);
+app.post('/composers', controller.createComposer, controller.updateUserRegisteredComposer);
+app.post('/cart', controller.addToCart, controller.getCart);
 
+// Delete
+app.delete('/cart/:id', controller.removeFromCart);
 
 app.listen(config.port, function () {
   console.log("listening on ", config.port);

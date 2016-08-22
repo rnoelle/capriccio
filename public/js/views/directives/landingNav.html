@@ -2,5 +2,17 @@
 <a ng-class="getClass('/main')" ui-sref="mainProducts">Shop<div id="shop-div"></div></a>
 <a ng-class="getClass('/publish')" ui-sref="publish">Publish<div id="publish-div"></div></a>
 <a ng-class="getClass('/profile')" ui-sref="profile">Profile<div id="profile-div"></div></a>
-<a href="#" id="nav-cart"><span class="fa fa-shopping-cart"></span>{{cartNumber}}</a>
+<div class="dropdown">
+  <div id="nav-cart" class="dropdown-toggle" data-toggle="dropdown">
+      <span class="fa fa-shopping-cart"></span> {{cartLength}}</div>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelled-by="main-menu">
+    <li ng-repeat="item in userCart">
+      <h4>{{item.quantity}} {{item.title}}</h4>
+    </li>
+    <div id="checkout-link" ui-sref="checkout">
+      Checkout Now
+    </div>
+  </ul>
+</div>
+
 <img id="nav-profile-pic" class="round-pic" src="{{picture_url}}" alt="" />

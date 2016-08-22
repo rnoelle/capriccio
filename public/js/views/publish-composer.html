@@ -1,12 +1,42 @@
-<landing-nav></landing-nav>
+<section class="main-white">
 
-<form class="composer-form" ng-submit="createComposer()">
-  <h3>Name as you would like it to appear on published works:</h3>
-  <input type="text" ng-model="first_name" placeholder="First Name">
-  <input type="text" ng-model="last_name" placeholder="Last Name">
-  <h3>Year of Birth:</h3>
-  <input type="text" ng-model="year_born" placeholder="Birth Year">
-  <h3>Country of Origin:</h3>
-  <input type="text" ng-model="country_of_origin" placeholder="Country of Origin">
-  <input type="submit" name="submit">
-</form>
+    <h2>First, please sign up with us as a composer:</h2>
+
+    <form class="composer-form" ng-submit="createComposer()">
+
+        <h3>Name as you would like it to appear on published works:</h3>
+        <div class="composer-name-box">
+            <input type="text" ng-model="first_name" placeholder="First Name">
+            <input type="text" ng-model="last_name" placeholder="Last Name">
+        </div>
+
+        <h3>Year of Birth:</h3>
+        <input type="text" ng-model="year_born" placeholder="Birth Year">
+
+        <h3>Country of Origin:</h3>
+        <select class="country-select" ng-model="country_of_origin"
+            ng-options="item for item in countries">
+        </select>
+
+        <div class="checkbox-box">
+          <label for="agreed">
+            <input type="checkbox" name="agreed" value="true" required></input>I agree with the
+            <a class="pointer" data-toggle="modal" data-target="#termsModal">Terms and Conditions</a>
+          </label>
+        </div>
+
+        <div id="termsModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body flex">
+                <button type="button" class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                These are the terms and conditions of being a composer on our site - please keep them. Thanks.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <input type="submit" name="submit">
+    </form>
+
+</section>

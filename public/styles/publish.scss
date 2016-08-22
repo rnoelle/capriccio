@@ -27,3 +27,45 @@
 #template-box label img {
   width: 100%;
 }
+
+.pointer {
+  cursor: pointer;
+}
+.main-white {
+  width: 100%;
+  height: 90vh;
+  padding: 5vh;
+}
+.composer-form {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+   label {
+     display: block;
+     padding-left: 15px;
+     text-indent: -15px;
+     font-weight: normal;
+   }
+   input[type=text] {
+     padding: 4px 30px 2px 9px;
+   }
+   input[type=checkbox] {
+     width: 13px;
+     height: 13px;
+     padding: 0;
+     margin-right: 5px;
+     vertical-align: middle;
+     position: relative;
+     top: -1px;
+     *overflow: hidden;
+   }
+   select {
+     padding: 4px 60px 2px 9px;
+   }
+   .checkbox-box {
+     margin-top: 2vh;
+     margin-bottom: 3vh;
+   }
+}

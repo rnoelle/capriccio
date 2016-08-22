@@ -1,5 +1,12 @@
 angular.module('capriccio')
   .controller('composerCtrl', function ($location, $scope, dataService) {
+    this.getCountries = function () {
+      dataService.getCountries().then(function (response) {
+        $scope.countries = response;
+        $scope.country_of_origin = 'United States';
+      })
+    }
+    this.getCountries();
     $scope.createComposer = function () {
       if (!$scope.year_died) {
         $scope.year_died = null;
@@ -9,5 +16,9 @@ angular.module('capriccio')
           $location.path('/publish');
           $location.replace();
         })
+    }
+    $scope.createComposer = function () {
+      dataService.createComposer($scope.first_name, $scope.last_name,
+        $scope.year_born, null, $scope.country_of_origin)
     }
   })

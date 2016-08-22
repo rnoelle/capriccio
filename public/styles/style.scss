@@ -48,6 +48,9 @@ landing-nav {
       visibility: hidden;
     }
   }
+  #nav-cart {
+    cursor: pointer;
+  }
 }
 landing-nav a:hover, landing-nav a:focus {
   color: #555;

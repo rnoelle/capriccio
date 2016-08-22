@@ -1,5 +1,5 @@
 angular.module('capriccio')
-  .controller('productCtrl', function ($scope, dataService, $stateParams, $sce) {
+  .controller('productCtrl', function ($scope, $rootScope, dataService, $stateParams) {
     var thisProduct = $stateParams.id
     function getProduct(id) {
       dataService.getProduct(id).then(function (response) {
@@ -7,6 +7,10 @@ angular.module('capriccio')
       })
     }
     getProduct(thisProduct);
-    // $scope.productUrl = $sce.trustAsResourceUrl($scope.product.pdfUrl);
 
+      $scope.addToCart = function () {
+        dataService.addToCart(thisProduct, 1).then(function (response) {
+          $rootScope.cart = response.data;
+        });
+      }
   })

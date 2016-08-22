@@ -60,17 +60,19 @@ module.exports = {
       })
     },
     getAuth: function (req, res, next) {
-      console.log(req.user, "server getting auth");
+      console.log("server getting auth");
       if (!req.user) {
         res.status(401).send('please login');
         return;
       }
       if (!req.user.admin) {
         res.status(403).send('unauthorized');
+        return;
       }
       res.status(200).send('');
+      next();
     },
-  isComposer: function (req, res, next) {
+  getComp: function (req, res, next) {
     if (!req.user) {
       res.status(401).send('please login');
       return;

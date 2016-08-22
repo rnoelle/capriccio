@@ -17,6 +17,36 @@ angular.module('capriccio')
         return response.data[0];
       })
     }
+    this.getCart = function () {
+      return $http({
+        method: 'GET',
+        url: '/cart'
+      }).then(function (response) {
+        console.log(response);
+        return response.data;
+      })
+    }
+    
+    this.addToCart = function (product_id, quantity) {
+      return $http({
+        method: 'POST',
+        url: '/cart',
+        data: {
+          product_id: product_id,
+          quantity: quantity
+        }
+      }).then(function (response) {
+        return response;
+      })
+    }
+    this.removeFromCart = function (id) {
+      return $http({
+        method: 'DELETE',
+        url: `/cart/${id}`,
+      }).then(function (response) {
+        return response.data;
+      })
+    }
     this.localSignin = function (email, password) {
       return $http({
         method: 'POST',
@@ -36,12 +66,17 @@ angular.module('capriccio')
         method: 'GET',
         url: '/userauth'
       }).then(function (response) {
-        console.log(response);
         return response;
       })
     }
     this.getComp = function () {
-      
+      console.log('service getting comp');
+      return $http({
+        method: 'GET',
+        url: '/usercomp'
+      }).then(function (response) {
+        return response;
+      })
     }
     this.getProfile = function () {
       return $http({
@@ -64,7 +99,7 @@ angular.module('capriccio')
       })
     }
     this.createComposer = function (first_name, last_name,
-      year_born, year_died, country_of_origin, user_id) {
+      year_born, year_died, country_of_origin) {
         return $http({
           method: 'POST',
           url: '/composers',
@@ -73,11 +108,23 @@ angular.module('capriccio')
             last_name: last_name,
             year_born: year_born,
             country_of_origin: country_of_origin,
-            user_id: user_id,
             year_died: year_died
           }
         }).then(function (response) {
           return response;
         })
+    }
+    this.getCountries = function () {
+      return $http({
+        method: 'GET',
+        url: 'https://restcountries.eu/rest/v1/all'
+      }).then(function (response) {
+        var countries = [];
+        countries.push('United States');
+        for(var country of response.data) {
+          countries.push(country.name);
+        }
+        return countries;
+      })
     }
   })
