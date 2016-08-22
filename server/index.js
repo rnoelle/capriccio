@@ -134,7 +134,7 @@ app.post('/update', uploads.adminUpdate, controller.updateWork, function (req, r
   res.send(req.body);
 });
 app.post('/users', authCtrl.addLocalUser);
-app.post('/composers', controller.createComposer, controller.updateUserRegisteredComposer);
+app.post('/composers', controller.createComposer);
 app.post('/cart', controller.addToCart, controller.getCart);
 
 // Delete

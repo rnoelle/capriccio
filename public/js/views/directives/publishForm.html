@@ -1,12 +1,12 @@
 <form class="upload-form" id="composer-upload-form"
       action="http://localhost:4531/upload" method="post"
       enctype="multipart/form-data">
-
+  <h3>Information about Piece:</h3>
   <input type="text" name="title" placeholder="Title">
 
   <input type="text" name="yearComposed" placeholder="Year Composed">
 
-  <!-- admin -->
+  <!-- Admin -->
   <div class="composer-info-hidden hidden">
     <h4>Name as you want it to appear on cover:</h4>
     <input type="text" name="composerFirst" ng-model="first_name">
@@ -21,8 +21,10 @@
   <input class="hidden" type="text" name="admin" ng-model="currentUser.admin">
 
   <!-- Files -->
+  <h3>Upload Files</h3>
   <h4>Score</h4>
-  <input type="file" name="submissionScore" value="">
+  <label for="submissionScore"><i class="fa fa-upload"></i></label>
+  <input type="file" name="submissionScore" class="file-upload-proper">
 
   <h4>Parts</h4>
   <input type="file" name="submissionParts" value="">

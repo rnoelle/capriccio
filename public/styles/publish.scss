@@ -69,3 +69,37 @@
      margin-bottom: 3vh;
    }
 }
+
+.upload-form {
+  width: 65%;
+  margin: 10px auto;
+  input[type="text"] {
+    display: block;
+    margin-bottom: 5px;
+    &:nth-child(1) {
+      width: 51%;
+    }
+    &:nth-child(2) {
+      width: 20%;
+    }
+  }
+  input[type="file"] {
+    padding: 10px;
+    border-radius: 40px;
+    border: none;
+    width: 30%;
+    height: 4em;
+    border-radius: 40px;
+    background-color: #c8d4dd;
+    color: #777;
+    font-family: 'Hind Guntur', sans-serif;
+    text-transform: uppercase;
+    box-shadow: 0 6px #777;
+    border: none;
+    margin: 5vh auto;
+    &:hover {
+      background-color: #d8e4ee;
+    }
+  }
+
+}

@@ -25,13 +25,13 @@ angular.module('capriccio')
         updateTotal(response);
       })
     }
-    function checkout() {
+    $scope.checkout = function() {
       console.log('HIT IT');
       var handler = StripeCheckout.configure({
         key: 'pk_test_q7PtsCCbjWU88u3W834D5hSQ',
-        image: '/img/documentation/checkout/marketplace.png',
+        image: 'assetts/img/thumb-100.png',
         locale: 'auto',
-        token: function(token) {
+        token: function () {
 
         }
       });

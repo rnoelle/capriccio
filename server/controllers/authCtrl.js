@@ -77,10 +77,14 @@ module.exports = {
       res.status(401).send('please login');
       return;
     }
-    if (!req.user.registered_composer == true) {
-      res.status(303).send('unauthorized')
-      return;
-    }
+    db.get_composer_by_user(req.user.id, function (err, resp) {
+      console.log(resp);
+      if (resp.length === 0) {
+        res.status(303).send('unauthorized')
+        return;
+      }
+    })
+
     res.redirect('/composer');
   }
 }

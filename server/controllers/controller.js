@@ -26,7 +26,6 @@ module.exports = {
     if (!req.session.cart) {
       req.session.cart = [];
     }
-    console.log(req.body);
       db.read_product(req.body.product_id, function (err, product) {
         req.session.cart.push(product[0]);
         res.json(req.session.cart);
@@ -38,14 +37,11 @@ module.exports = {
       res.status(403).send('no cart');
       return;
     }
-    console.log('search id', req.params.id);
     for (let i = 0; i < req.session.cart.length; i++) {
-      console.log('thisId', req.session.cart[i].id);
       if (req.session.cart[i].id = req.params.id) {
         req.session.cart.splice(i, 1);
         break;
       }
-      console.log(req.session.cart.length);
     } res.json(req.session.cart);
   },
 
@@ -125,15 +121,11 @@ module.exports = {
     }
     var country_of_origin = req.body.country_of_origin;
     var user_id = req.user.id;
-    db.createComposer(first_name, last_name, year_born,
+    db.create_composer(first_name, last_name, year_born,
       year_died, country_of_origin, user_id, function (err, resp) {
         res.send(resp)
       })
-  },
-
-  updateUserRegisteredComposer: function (req, res, next) {
-    db.update_user_registered_composer(req.body.user_id, function (err, resp) {
-      res.send(resp)
-    })
   }
+
+  
 }
