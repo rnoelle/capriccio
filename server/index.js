@@ -5,7 +5,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt-nodejs');
 const massive = require('massive');
 const fileUpload = require('express-fileupload');
 const multer = require('multer');
@@ -117,6 +116,7 @@ app.get('/products', controller.getProducts);
 app.get('/product/:id', controller.getProduct);
 app.get('/profiles', controller.getProfile);
 app.get('/cart', controller.getCart);
+app.get('/submissions', controller.getSubmissions);
 
 
 //Post
@@ -127,12 +127,12 @@ app.post('/login', passport.authenticate('local', {failureRedirect: '/login', su
     res.status(200).send();
   });
 // // Others
-app.post('/upload', uploads.composerUpload, controller.createSubmission, function (req, res, next) {
-  res.send(req.body);
+app.post('/upload', uploads.composerUpload, controller.createSubmission);
+app.post('/update', uploads.adminUpdate, controller.updateWork,
+  function (req, res, next) {
+    res.redirect('/updated');
 });
-app.post('/update', uploads.adminUpdate, controller.updateWork, function (req, res, next) {
-  res.send(req.body);
-});
+
 app.post('/users', authCtrl.addLocalUser);
 app.post('/composers', controller.createComposer);
 app.post('/cart', controller.addToCart, controller.getCart);

@@ -5,29 +5,48 @@ angular.module('capriccio')
             controller: "publishCtrl",
             restrict: 'EA',
             link: function(scope, element, attrs) {
-                
+                $('#score-file-upload').change(function () {
+                  $('#scoreFile').val($('#score-file-upload')[0].files[0].name);
+                })
+
+                $('#parts-file-upload').change(function () {
+                  $('#partsFile').val($('#parts-file-upload')[0].files[0].name);
+                })
+
+                $('#cover-file-upload').change(function () {
+                  $('#coverFile').val($('#cover-file-upload')[0].files[0].name);
+                })
+
                 scope.showTemplates = function() {
-                  $('#cover-upload').addClass('hidden');
+                  $('.cover-upload').addClass('hidden');
                   $('#template-box').removeClass('hidden');
+                  $("#cover-file-upload").replaceWith($("#cover-file-upload").clone());
+                  $("#coverFile").val('');
+                  $('#cover-file-upload').change(function () {
+                    $('#coverFile').val($('#cover-file-upload')[0].files[0].name);
+                  })
                 }
                 scope.hideTemplates = function() {
-                  element.find('#template-box').addClass('hidden');
-                  element.find('#cover-upload').removeClass('hidden');
+                  $('#template-box').addClass('hidden');
+                  $('.cover-upload').removeClass('hidden');
+                  $('.template-radio').prop('checked', function () {
+                    return this.getAttribute('checked') == false;
+                  })
                 }
                 scope.pdfOnly = function() {
-                  $('#price-pdf').removeClass('hidden');
-                  $('#price-print').addClass('hidden');
-                  $('#price-mixed').addClass('hidden');
+                  $('#price-pdf').removeClass('hidden-left');
+                  $('#price-print').addClass('hidden-left');
+                  $('#price-mixed').addClass('hidden-left');
                 }
                 scope.printOnly = function() {
-                  $('#price-print').removeClass('hidden');
-                  $('#price-pdf').addClass('hidden');
-                  $('#price-mixed').addClass('hidden');
+                  $('#price-print').removeClass('hidden-left');
+                  $('#price-pdf').addClass('hidden-left');
+                  $('#price-mixed').addClass('hidden-left');
                 }
                 scope.mixedPackage = function() {
-                  $('#price-mixed').removeClass('hidden');
-                  $('#price-pdf').removeClass('hidden');
-                  $('#price-print').removeClass('hidden');
+                  $('#price-mixed').removeClass('hidden-left');
+                  $('#price-pdf').removeClass('hidden-left');
+                  $('#price-print').removeClass('hidden-left');
                 }
             }
         }

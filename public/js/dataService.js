@@ -26,7 +26,7 @@ angular.module('capriccio')
         return response.data;
       })
     }
-    
+
     this.addToCart = function (product_id, quantity) {
       return $http({
         method: 'POST',
@@ -125,6 +125,14 @@ angular.module('capriccio')
           countries.push(country.name);
         }
         return countries;
+      })
+    }
+    this.getSubmissions = function () {
+      return $http({
+        method: 'GET',
+        url: '/submissions'
+      }).then(function (response) {
+        return response.data;
       })
     }
   })

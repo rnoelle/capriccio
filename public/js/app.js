@@ -153,6 +153,7 @@ angular.module('capriccio')
       .state('admin.review', {
         url: '/review',
         templateUrl: 'js/views/admin/admin-review.html',
+        controller: 'adminReviewCtrl',
         resolve: adminResolve
       })
       .state('admin.users', {

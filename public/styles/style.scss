@@ -11,6 +11,10 @@
 .hidden {
   display: none;
 }
+.hidden-left {
+  opacity: 0;
+  transform: translateX(-10vw);
+}
 .filler {
   width: 100%;
   height: 10vh;

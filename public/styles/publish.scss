@@ -69,37 +69,100 @@
      margin-bottom: 3vh;
    }
 }
-
+.upload-instructions {
+  width: 65%;
+  margin: 0 auto;
+}
 .upload-form {
   width: 65%;
   margin: 10px auto;
   input[type="text"] {
     display: block;
     margin-bottom: 5px;
-    &:nth-child(1) {
-      width: 51%;
-    }
+    padding: 3px 0 3px 5px;
     &:nth-child(2) {
+      width: 45%;
+    }
+    &:nth-child(3) {
       width: 20%;
     }
   }
   input[type="file"] {
-    padding: 10px;
-    border-radius: 40px;
-    border: none;
-    width: 30%;
-    height: 4em;
-    border-radius: 40px;
-    background-color: #c8d4dd;
-    color: #777;
-    font-family: 'Hind Guntur', sans-serif;
-    text-transform: uppercase;
-    box-shadow: 0 6px #777;
-    border: none;
-    margin: 5vh auto;
     &:hover {
       background-color: #d8e4ee;
     }
   }
-
+  em {
+    cursor: pointer;
+    &:hover {
+      color: rgb(22, 80, 168);
+      text-decoration: underline;
+    }
+  }
+  .file-upload-proper {
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    cursor: pointer;
+  }
+  .input-label, input[type=submit],
+    .upload-button-style {
+    width: 25%;
+    height: 3.2em;
+    border-radius: 40px;
+    background-color: #c8d4dd;
+    color: #777;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 .25em #777;
+    border: none;
+    letter-spacing: .05em;
+    cursor: pointer;
+    &:hover {
+      background-color: #9eb1bf;
+    }
+    &:active {
+      top: .25em;
+      box-shadow: none;
+    }
+  }
+  .input-label {
+    position: relative;
+    padding-top: .8em;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    float: left;
+  }
+  .upload-button-style {
+    margin-top: 2vh;
+  }
+  .upload-submit-button {
+    padding: 3vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .file-holder {
+    float: left;
+    height: 3.45em;
+    border: none;
+    width: 40%;
+    padding-left: 5px;
+  }
+  .upload-section-box {
+    clear: both;
+    margin-bottom: 10vh;
+  }
+  input[name=package] {
+    margin-left: 15px;
+  }
+  .price-box {
+    transition: all .3s;
+  }
 }

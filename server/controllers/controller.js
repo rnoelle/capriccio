@@ -72,8 +72,7 @@ module.exports = {
     var parts_url = "../public/uploads/" + req.files.submissionParts[0].filename;
     var date_submitted = new Date();
     var title = req.body.title;
-    var composerfirst = req.body.composerFirst;
-    var composerlast = req.body.composerLast;
+    var year_composed = req.body.year_composed;
     if (req.body.package == "pdf") {
       var package = 'pdf';
       var price_pdf = req.body.price_pdf;
@@ -92,13 +91,22 @@ module.exports = {
       var price_pdf = req.body.price_pdf;
       var price_print = req.body.price_print;
     }
+
     var accepted = null;
     var date_accepted = null;
-    db.create_submission(date_submitted, title, composerfirst, composerlast,
-      cover_url, score_url, parts_url, template, price_print, price_pdf,
-      price_mixed, package, accepted, date_accepted, function (err, resp) {
-        res.send('submitted');
+    console.log(req.user.id);
+    db.get_composer_by_user(req.user.id, function (err, resp) {
+      var composer_id = resp.id;
+      db.create_submission(date_submitted, title, year_composed, composer_id,
+        cover_url, score_url, parts_url, template, price_print, price_pdf,
+        price_mixed, package, accepted, date_accepted, function (err, resp) {
+          if(err) {
+            console.log('error', err);
+          }
+          res.status(200).send('submitted');
+
       });
+    });
   },
 
   updateWork: function (req, res, next) {
@@ -125,7 +133,13 @@ module.exports = {
       year_died, country_of_origin, user_id, function (err, resp) {
         res.send(resp)
       })
+  },
+
+  getSubmissions: function (req, res, next) {
+    db.get_unreviewed_submissions(function (err, resp) {
+      res.json(resp);
+    })
   }
 
-  
+
 }
