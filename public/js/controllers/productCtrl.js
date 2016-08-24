@@ -10,7 +10,8 @@ angular.module('capriccio')
 
       $scope.addToCart = function () {
         dataService.addToCart(thisProduct, 1).then(function (response) {
-          $rootScope.cart = response.data;
+          $rootScope.userCart = response.data;
+          $rootScope.cartLength = response.data.length;
         });
       }
   })

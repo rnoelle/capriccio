@@ -7,7 +7,15 @@
     border-color: rgb(125, 186, 112);
     outline-color: rgb(125, 186, 112);
 }*/
-
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+}
 .hidden {
   display: none;
 }
@@ -55,6 +63,28 @@ landing-nav {
   #nav-cart {
     cursor: pointer;
   }
+  .cart-dropdown {
+    padding: 10px;
+    right: 0;
+    top: 5.75vh;
+    width: 30vw;
+    left: -20vw;
+    border-top: none;
+    border-top-left-radius: 0;
+    #checkout-link {
+      cursor: pointer;
+      &:hover {
+      text-decoration: underline;
+      }
+    }
+  }
+  img {
+    margin-left: 2em;
+    cursor: pointer;
+    &:hover {
+      opacity: .85;
+    }
+  }
 }
 landing-nav a:hover, landing-nav a:focus {
   color: #555;
@@ -62,4 +92,23 @@ landing-nav a:hover, landing-nav a:focus {
 }
 landing-nav a:hover div, .active div{
   visibility: visible;
+}
+
+footer {
+  background-color: rgb(69, 66, 69);
+  position: absolute;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-around;
+  a, h5 {
+    color: rgb(96, 96, 101);
+  }
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+  }
 }

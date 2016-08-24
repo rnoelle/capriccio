@@ -1,12 +1,21 @@
 <aside class="profile-aside" >
   <div class="profile-self">
-    <img class="profile-avatar" ng-src="{{user.picture_url}}" alt="avatar" />
+    <img class="profile-avatar round-pic" ng-src="{{user.picture_url}}" alt="avatar" />
     <h2>{{user.first_name}} {{user.last_name}}</h2>
   </div>
+  <h5>Member since: {{user.date_joined | date}}</h5>
 </aside>
+<section class="profile-main">
+  <h3>Purchases:</h3>
+  <div class="purchases-box" ng-repeat="purchase in purchases">
+    <h4>{{purchase.title}}</h4>
+    <h5>{{purchase.composer}}</h5>
+  </div>
 
-<h3>Purchases:</h3>
-<div class="purchases-box" ng-repeat="purchase in purchases">
-  <h4>{{purchase.title}}</h4>
-  <h5>{{purchase.composer}}</h5>
-</div>
+  <h3>{{workHeader}}</h3>
+  <div class="work-card" ng-repeat="work in works_composed">
+    <h4>{{work.title}}</h4>
+    <h4>{{work.year_composed}}</h4>
+  </div>
+
+</section>

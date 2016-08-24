@@ -1,9 +1,9 @@
 <h2>Review Submissions</h2>
 <section class="submission-box">
-  <div class="submission-card" ng-repeat="submission in submissions">
+  <div class="submission-card pointer" ng-repeat="submission in submissions" ui-sref="admin.submission({id:submission.id})">
     <h4>{{submission.title}}</h4>
     <h5>{{submission.composer_first}} {{submission.composer_last}}</h5>
-    <h5>{{submission.date_submitted}}</h5>
+    <h5>{{submission.date_submitted | date}}</h5>
 
   </div>
 </section>

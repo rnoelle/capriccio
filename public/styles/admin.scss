@@ -1,0 +1,80 @@
+.admin-nav {
+  width: 100%;
+  height: 5vh;
+  font-size: 1.15em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px 30vw;
+  a div {
+    width: 100%;
+    height: .25em;
+    background-color: #3fd54f;
+    visibility: hidden;
+  }
+  a {
+    color: #666;
+    text-transform: uppercase;
+    &:hover {
+      text-decoration: none;
+    }
+    &:active, &:focus {
+      text-decoration: none;
+    }
+  }
+  a:hover div, .active div {
+    visibility: visible;
+  }
+}
+
+.admin-home-main {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  align-items: center;
+}
+.admin-button-box {
+  &:nth-child(1) {
+    .admin-button:nth-child(1) {
+      background-color: #51C2E8;
+    }
+    .admin-button:nth-child(2) {
+      background-color: #e4cc4a;
+    }
+  }
+  &:nth-child(2) {
+    .admin-button:nth-child(1) {
+      background-color: #FF5D5C;
+    }
+    .admin-button:nth-child(2) {
+      background-color: #7CA4FF;
+    }
+  }
+}
+
+.admin-button {
+  width: 25rem;
+  height: 25rem;
+  float: left;
+  margin: 10px;
+  text-align: center;
+  padding: 30px;
+  color: #eee;
+  cursor: pointer;
+  div {
+    margin: 0 auto;
+    position: relative;
+  }
+  i {
+    font-size: 5em;
+    color: #eee;
+  }
+  &:hover {
+    opacity: .85;
+    div {
+      top: -6px;
+    }
+  }
+}

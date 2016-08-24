@@ -9,33 +9,23 @@ angular.module('capriccio')
               .catch((err) => {
                   console.log("Unauthorized: ", err);
                   if (err.status === 401) {
-                      $state.go('login');
+                      $state.go('login.login');
                   }
               });
             }
           };
 
-          var composerResolve = {
-              security: (dataService, $state) => {
-                return dataService.getAuth()
-                    .catch((err) => {
-                        console.log("Unauthorized: ", err);
-                        if (err.status === 401) {
-                            $state.go('login');
-                        }
-                    });
-                  }
-                };
-
 
     $stateProvider
       .state('home', {
         url: '/landing',
-        templateUrl: 'js/views/landing.html'
+        templateUrl: 'js/views/landing.html',
+        controller: 'landingCtrl'
       })
       .state('login', {
         url:'/login',
-        controller: 'loginCtrl'
+        controller: 'loginCtrl',
+        template: '<ui-view></ui-view>'
       })
       .state('login.login', {
         url:'/login',
@@ -119,7 +109,18 @@ angular.module('capriccio')
       .state('admin', {
         url: '/admin',
         templateUrl: 'js/views/admin/admin.html',
-        resolve: adminResolve
+        resolve: {
+            security: (dataService, $state) => {
+              return dataService.getAuth()
+                  .catch((err) => {
+                      console.log("Unauthorized: ", err);
+                      if (err.status === 401) {
+                          $state.go('login.login');
+                      }
+                  });
+                }
+
+          }
       })
       .state('admin.home', {
         url: '/home',
@@ -154,6 +155,20 @@ angular.module('capriccio')
         url: '/review',
         templateUrl: 'js/views/admin/admin-review.html',
         controller: 'adminReviewCtrl',
+        resolve: adminResolve
+      })
+      .state('admin.submission', {
+        url: '/submission/:id',
+        templateUrl: 'js/views/admin/admin-submission.html',
+        controller: 'submissionCtrl',
+        link: function (scope, element, attr) {
+          scope.$watch('cover_url', function (value) {
+            console.log(value);
+            if (value) {
+              $('#cover').removeClass('hidden');
+            }
+          })
+        },
         resolve: adminResolve
       })
       .state('admin.users', {

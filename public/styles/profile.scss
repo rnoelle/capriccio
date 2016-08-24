@@ -13,6 +13,11 @@
     display: inline-block;
   }
 }
+.profile-main {
+  padding: 10px 30px;
+  width: 73%;
+  float: left;
+}
 .round-pic {
   -webkit-clip-path: circle(50% at center);
   clip-path: circle(50% at center);

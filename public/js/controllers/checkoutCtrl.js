@@ -19,6 +19,7 @@ angular.module('capriccio')
     getCart();
 
     $scope.removeItem = function (id) {
+      console.log(id);
       dataService.removeFromCart(id).then(function (response) {
         $rootScope.cart = response;
         $scope.order = response;

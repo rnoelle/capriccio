@@ -5,14 +5,25 @@
 <div class="dropdown">
   <div id="nav-cart" class="dropdown-toggle" data-toggle="dropdown">
       <span class="fa fa-shopping-cart"></span> {{cartLength}}</div>
-  <ul class="dropdown-menu dropdown-menu-right" aria-labelled-by="main-menu">
+  <ul id="cart-dropdown" class="cart-dropdown dropdown-menu dropdown-menu-right" aria-labelled-by="main-menu">
     <li ng-repeat="item in userCart">
       <h4>{{item.quantity}} {{item.title}}</h4>
     </li>
-    <div id="checkout-link" ui-sref="checkout">
+    <hr>
+    <div id="checkout-link" class="hidden" ui-sref="checkout">
       Checkout Now
     </div>
   </ul>
 </div>
 
-<img id="nav-profile-pic" class="round-pic" src="{{picture_url}}" alt="" />
+<div class="dropdown">
+  <div class="dropdown-toggle" data-toggle="dropdown" >
+    <img id="nav-profile-pic" class="round-pic dropdown-toggle" src="{{picture_url}}" alt="" />
+  </div>
+  <ul class="profile-dropdown dropdown-menu dropdown-menu-right" aria-labelled-by="main-menu">
+    <li> <a ui-sref="profile">Profile</a></li>
+    <li class="pointer" ng-click="logout()">
+      <a ui-sref="landing">Log Out</a>
+    </li>
+  </ul>
+</div>

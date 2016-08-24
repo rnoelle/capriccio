@@ -9,6 +9,7 @@ angular.module('capriccio')
         return response.data;
       });
     }
+
     this.getProduct = function (id) {
       return $http({
         method: 'GET',
@@ -17,12 +18,12 @@ angular.module('capriccio')
         return response.data[0];
       })
     }
+
     this.getCart = function () {
       return $http({
         method: 'GET',
         url: '/cart'
       }).then(function (response) {
-        console.log(response);
         return response.data;
       })
     }
@@ -39,6 +40,7 @@ angular.module('capriccio')
         return response;
       })
     }
+
     this.removeFromCart = function (id) {
       return $http({
         method: 'DELETE',
@@ -47,6 +49,7 @@ angular.module('capriccio')
         return response.data;
       })
     }
+
     this.localSignin = function (email, password) {
       return $http({
         method: 'POST',
@@ -60,6 +63,7 @@ angular.module('capriccio')
         return response;
       })
     }
+
     this.getAuth = function () {
       console.log('service getting auth');
       return $http({
@@ -69,6 +73,7 @@ angular.module('capriccio')
         return response;
       })
     }
+
     this.getComp = function () {
       console.log('service getting comp');
       return $http({
@@ -78,6 +83,7 @@ angular.module('capriccio')
         return response;
       })
     }
+
     this.getProfile = function () {
       return $http({
         method: 'GET',
@@ -86,6 +92,7 @@ angular.module('capriccio')
         return response.data[0];
       });
     }
+
     this.createUser = function (first_name, last_name, email, password) {
       return $http({
         method: 'POST',
@@ -98,6 +105,7 @@ angular.module('capriccio')
         }
       })
     }
+
     this.createComposer = function (first_name, last_name,
       year_born, year_died, country_of_origin) {
         return $http({
@@ -114,6 +122,7 @@ angular.module('capriccio')
           return response;
         })
     }
+
     this.getCountries = function () {
       return $http({
         method: 'GET',
@@ -127,12 +136,49 @@ angular.module('capriccio')
         return countries;
       })
     }
+
     this.getSubmissions = function () {
       return $http({
         method: 'GET',
         url: '/submissions'
       }).then(function (response) {
         return response.data;
+      })
+    }
+
+    this.getSubmission = function (id) {
+      return $http({
+        method: 'GET',
+        url: `/submissions/${id}`
+      }).then(function (response) {
+        return response.data;
+      })
+    }
+
+    this.getPurchasesByUser = function () {
+      return $http({
+        method: 'GET',
+        url: '/orders'
+      }).then(function (response) {
+        return response.data;
+      })
+    }
+
+    this.getWorksByComposer = function (id) {
+      return $http({
+        method: 'GET',
+        url: `/works/${id}`
+      }).then(function (response) {
+        return response.data;
+      })
+    }
+
+    this.logout = function () {
+      return $http({
+        method: 'GET',
+        url: '/auth/logout'
+      }).then(function (response) {
+        return response;
       })
     }
   })

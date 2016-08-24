@@ -38,7 +38,7 @@ module.exports = {
       return;
     }
     for (let i = 0; i < req.session.cart.length; i++) {
-      if (req.session.cart[i].id = req.params.id) {
+      if (req.session.cart[i].id == req.params.id) {
         req.session.cart.splice(i, 1);
         break;
       }
@@ -96,7 +96,7 @@ module.exports = {
     var date_accepted = null;
     console.log(req.user.id);
     db.get_composer_by_user(req.user.id, function (err, resp) {
-      var composer_id = resp.id;
+      var composer_id = resp[0].id;
       db.create_submission(date_submitted, title, year_composed, composer_id,
         cover_url, score_url, parts_url, template, price_print, price_pdf,
         price_mixed, package, accepted, date_accepted, function (err, resp) {
@@ -138,6 +138,54 @@ module.exports = {
   getSubmissions: function (req, res, next) {
     db.get_unreviewed_submissions(function (err, resp) {
       res.json(resp);
+    })
+  },
+
+  getSubmission: function (req, res, next) {
+    db.get_submission_by_id(req.params.id, function (err, resp) {
+      res.json(resp[0]);
+    })
+  },
+
+  addOrder: function (req, res, next) {
+    var timeNow = newDate();
+    db.purchases.insert({user_id: req.user.id, order_date: timeNow}, function (err, order) {
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      for (var item in req.session.cart) {
+        var prices = [];
+        db.purchase_lines.insert({order_id: order.id, work_id: item.id, quantity:1, package:'mixed'}, function (err, resp) {
+          if (err) {
+            res.status(500).send(err);
+          }
+          db.get_price_by_work(item.id, function (err, price) {
+            if (err) {
+              res.status(500).send(err);
+            }
+            prices.push(price);
+          })
+        })
+      }
+    })
+  },
+
+  getPurchasesByUser: function (req, res, next) {
+    db.get_purchases_by_user(req.user.id, function (err, purchases) {
+      if (err) {
+        res.status(500).send(err)
+      }
+      res.json(purchases);
+    })
+  },
+
+  getWorksByComposer: function (req, res, next) {
+    db.get_works_by_composer(req.params.id, function (err, works) {
+      if (err) {
+        res.status(500).send(err)
+      }
+      res.json(works);
     })
   }
 

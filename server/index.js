@@ -117,6 +117,9 @@ app.get('/product/:id', controller.getProduct);
 app.get('/profiles', controller.getProfile);
 app.get('/cart', controller.getCart);
 app.get('/submissions', controller.getSubmissions);
+app.get('/submissions/:id', controller.getSubmission);
+app.get('/orders', controller.getPurchasesByUser);
+app.get('/works/:id', controller.getWorksByComposer);
 
 
 //Post
@@ -136,6 +139,7 @@ app.post('/update', uploads.adminUpdate, controller.updateWork,
 app.post('/users', authCtrl.addLocalUser);
 app.post('/composers', controller.createComposer);
 app.post('/cart', controller.addToCart, controller.getCart);
+app.post('/orders', controller.addOrder)
 
 // Delete
 app.delete('/cart/:id', controller.removeFromCart);

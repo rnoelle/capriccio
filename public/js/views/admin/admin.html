@@ -1,0 +1,9 @@
+<nav class="admin-nav">
+  <a ng-class="getClass('/admin/inventory')" ui-sref="admin.inventory">Inventory<div id="inventory-div"></div></a>
+  <a ng-class="getClass('/admin/review')" ui-sref="admin.review">Review Submissions<div id="review-div"></div></a>
+  <a ng-class="getClass('/admin/users')" ui-sref="admin.users">Users<div id="users-div"></div></a>
+  <a ng-class="getClass('/admin/analyis')" ui-sref="admin.analysis">Sales Analysis<div id="sales-div"></div></a>
+</nav>
+
+
+<ui-view></ui-view>

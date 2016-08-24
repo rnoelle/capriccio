@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./compiled/styles/styles.css" media="screen" title="no title" charset="utf-8">
     <title>Capriccio</title>
   </head>
-  <body>
+  <body ng-controller="overlordCtrl">
     <nav class="main-nav">
       <a ui-sref="home"><img src="./assetts/img/logo-large.png" alt="logo" /></a>
       <landing-nav></landing-nav>
@@ -16,7 +16,22 @@
     <div class="filler">
 
     </div>
-    <ui-view><ui-view>
+    <ui-view></ui-view>
+    <footer>
+      <div class="">
+
+      </div>
+      <div class="">
+        <h5>&copy; Capriccio 2016</h5>
+        <h5>All Rights Reserved</h5>
+      </div>
+      <div class="footer-nav">
+        <a ui-sref="home">About</a>
+        <a ui-sref="mainProducts">Shop</a>
+        <a ui-sref="publish">Publish</a>
+        <a ui-sref="profile">Profile</a>
+      </div>
+    </footer>
 
     <!-- Stripe -->
     <script src="https://checkout.stripe.com/checkout.js"></script>

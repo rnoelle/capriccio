@@ -25,6 +25,10 @@
     .remove-button {
       float: right;
       color: #aaa;
+      &:hover {
+        text-decoration: underline;
+        color: #666;
+      }
     }
     .review-order-card-info {
       clear: both;
@@ -52,9 +56,19 @@
     color: #777;
     font-family: 'Hind Guntur', sans-serif;
     text-transform: uppercase;
+    font-weight: 700;
     box-shadow: 0 6px #777;
     border: none;
     margin: 5vh auto;
+    position: relative;
+    &:hover {
+      top: 2px;
+      box-shadow: 0 4px #777;
+    }
+    &:active {
+      top: 6px;
+      box-shadow: none;
+    }
     }
 }
 

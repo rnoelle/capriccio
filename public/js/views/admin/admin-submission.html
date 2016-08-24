@@ -1,0 +1,12 @@
+<section class="submission-info">
+  <h2>{{submission.title}}</h2>
+  <h3>{{submission.composer_first}} {{submission.composer_last}}</h3>
+  <h3>{{submission.year_composed}}</h3>
+  <h3>{{template}}</h3>
+</section>
+
+<section class="submission-files">
+  <img class="hidden" id="cover" ng-src="{{cover_url}}"></img>
+  <iframe ng-src="{{score_url}}" width="300px" height="450px"></iframe>
+  <iframe ng-src="{{parts_url}}" width="300px" height="450px"></iframe>
+</section>
