@@ -4,13 +4,16 @@
 }
 .profile-avatar {
   height: 4em;
-  width: 4em;
+  width: 5em;
   display: inline-block;
-  margin-right: 5px;
+  margin-right: 12px;
 }
 .profile-aside {
   h2 {
     display: inline-block;
+  }
+  h5 {
+    margin-bottom: 2em;
   }
 }
 .profile-main {

@@ -62,7 +62,7 @@ module.exports = {
 
   createSubmission: function (req, res, next) {
     if (req.files.cover) {
-      var cover_url = "../public/uploads" + req.files.cover.filename;
+      var cover_url = "../public/uploads/" + req.files.cover[0].filename;
       var template = null;
     } else {
       var template = req.body.template;
@@ -144,6 +144,13 @@ module.exports = {
   getSubmission: function (req, res, next) {
     db.get_submission_by_id(req.params.id, function (err, resp) {
       res.json(resp[0]);
+    })
+  },
+
+  acceptOrDenySubmission: function (req, res, next) {
+    db.submissions.update({id:req.params.id, accepted: req.params.acceptance},
+      function (err, resp) {
+        res.send(resp);
     })
   },
 

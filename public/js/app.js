@@ -20,7 +20,10 @@ angular.module('capriccio')
       .state('home', {
         url: '/landing',
         templateUrl: 'js/views/landing.html',
-        controller: 'landingCtrl'
+        controller: 'landingCtrl',
+        link: function (scope, element, attrs) {
+        
+        }
       })
       .state('login', {
         url:'/login',

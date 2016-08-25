@@ -173,6 +173,15 @@ angular.module('capriccio')
       })
     }
 
+    this.acceptOrDenySubmission = function (id, acceptance) {
+      return $http({
+        method: 'post',
+        url: `/submissions/decision/${id}/${acceptance}`
+      }).then(function (response) {
+        return response;
+      })
+    }
+
     this.logout = function () {
       return $http({
         method: 'GET',

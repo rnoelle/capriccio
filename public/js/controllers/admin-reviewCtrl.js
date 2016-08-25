@@ -3,7 +3,9 @@ angular.module('capriccio')
     var getSubmissions = function () {
       dataService.getSubmissions().then(function (response) {
         $scope.submissions = response;
+        $scope.numSubmissions = response.length;
       })
     }
     getSubmissions();
+
   })

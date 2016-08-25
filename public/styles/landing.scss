@@ -32,3 +32,122 @@
     }
   }
 }
+.three-box-three {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 75%;
+  .three-arrow {
+    font-size: 4em;
+    color: #666;
+    transition: opacity .5s, transform .75s;
+  }
+}
+
+.landing-three {
+  display: flex;
+  justify-content: center;
+  padding: 12vh 0;
+  .three-box {
+    background-color: #efefef;
+    box-shadow: 1px 1px 3px #cdcdcd;
+    padding: 3vw;
+    margin: 20px;
+    transition: opacity .5s, transform .75s;
+    h2 {
+      text-align: center;
+    }
+    p {
+      text-align: justify;
+    }
+  }
+}
+
+.angle-clip-section {
+  height: 60vh;
+  background: #eee;
+  box-shadow: 0 0 15px 2px rgba(5,5,5,0.3);
+  position: relative;
+  img {
+    float:left;
+    height: 100%;
+  }
+  .angle-section-text {
+    float: right;
+    text-align: center;
+    right: 10vw;
+    top: 23.5vh;
+    position: absolute;
+    max-width: 50%;
+    h1 {
+      font-size: 3em;
+    }
+  }
+}
+
+@keyframes violin-bow {
+  0% {left: -5vw}
+  50% {left: 0vw}
+  100% {left: -5vw}
+}
+.violin-section {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .violin-left {
+    width: 30%;
+  }
+  .violin-right {
+    width: 30%;
+    transform: translateX(50vw);
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  }
+  .violin-animation {
+    float:left;
+    top: 5vh;
+    position: relative;
+    height: 30%;
+    width: 20%;
+    #violin {
+      width: 100%;
+      height: 100%;
+    }
+    #violin-bow {
+      position: absolute;
+      width: 208%;
+      top: 10vh;
+      left: -5vw;
+      -moz-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+    }
+  }
+  .violin-text {
+    margin-top: 3em;
+    float:right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    text-align: center;
+    h1 {
+      font-size: 4em;
+      margin-top: -1rem;
+      margin-bottom: 3rem;
+    }
+    p {
+      text-align: justify;
+    }
+  }
+}
+
+.music-note-parallax {
+  display: flex;
+  padding: 100px;
+}

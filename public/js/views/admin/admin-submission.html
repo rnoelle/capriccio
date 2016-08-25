@@ -7,6 +7,22 @@
 
 <section class="submission-files">
   <img class="hidden" id="cover" ng-src="{{cover_url}}"></img>
-  <iframe ng-src="{{score_url}}" width="300px" height="450px"></iframe>
-  <iframe ng-src="{{parts_url}}" width="300px" height="450px"></iframe>
+  <iframe class="review-iframe" ng-src="{{score_url}}" width="30%" height="750px"></iframe>
+  <iframe class="review-iframe" ng-src="{{parts_url}}" width="30%" height="750px"></iframe>
+</section>
+
+<section class="accept-deny-box">
+
+<form ng-submit="acceptSubmission()">
+  <div class="accept-box">
+    <label for="files-saved-confirm">
+        <input type="checkbox" name="files-saved-confirm" required>Files saved and reviewed</input>
+    </label>
+    <button type="submit" name="Accept Submission">Accept Submission</button>
+  </div>
+
+  <h4>- or -</h4>
+  <button type="button" ng-click="deleteSubmission()">Deny Submission</button>
+</form>
+
 </section>
