@@ -14,7 +14,7 @@ const config = require('./config');
 // Basic Setup
 const app = module.exports = express();
 app.use(express.static('../public'));
-const connectionString = "postgres://postgres:Color45@localhost/capricciodb"
+const connectionString = "postgres://noelle:Colour45@localhost/capricciodb"
 const massiveInstance = massive.connectSync({connectionString: connectionString});
 app.set('db', massiveInstance);
 const db = app.get('db');
@@ -120,6 +120,7 @@ app.get('/submissions', controller.getSubmissions);
 app.get('/submissions/:id', controller.getSubmission);
 app.get('/orders', controller.getPurchasesByUser);
 app.get('/works/:id', controller.getWorksByComposer);
+app.get('/users', controller.getUsers);
 
 
 //Post

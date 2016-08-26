@@ -60,6 +60,12 @@ module.exports = {
     }
   },
 
+  getUsers: function (req, res, next) {
+    db.read_users(function (err, users) {
+      res.json(users);
+    })
+  },
+
   createSubmission: function (req, res, next) {
     if (req.files.cover) {
       var cover_url = "../public/uploads/" + req.files.cover[0].filename;
