@@ -79,24 +79,24 @@ module.exports = {
     var date_submitted = new Date();
     var title = req.body.title;
     var year_composed = req.body.year_composed;
-    var package;
+    var package2;
     var price_pdf;
     var price_print;
     var price_mixed;
     if (req.body.package == "pdf") {
-       package = 'pdf';
+       package2 = 'pdf';
        price_pdf = req.body.price_pdf;
        price_print = null;
        price_mixed = null;
     }
     else if (req.body.package == "print") {
-       package = 'print';
+       package2 = 'print';
        price_print = req.body.price_print;
        price_pdf = null;
        price_mixed = null;
     }
     else if (req.body.package == "mixed") {
-       package = 'mixed';
+       package2 = 'mixed';
        price_mixed = req.body.price_mixed;
        price_pdf = req.body.price_pdf;
        price_print = req.body.price_print;
