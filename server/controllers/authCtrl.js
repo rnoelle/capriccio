@@ -1,4 +1,4 @@
-var app = require('../server');
+var app = require('../index');
 var db = app.get('db');
 var bcrypt = require('bcrypt-nodejs');
 
