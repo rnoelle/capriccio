@@ -85,13 +85,13 @@ module.exports = {
       var price_print = null;
       var price_mixed = null;
     }
-    if (req.body.package == "print") {
+    else if (req.body.package == "print") {
       var package = 'print';
       var price_print = req.body.price_print;
       var price_pdf = null;
       var price_mixed = null;
     }
-    if (req.body.package == "mixed") {
+    else if (req.body.package == "mixed") {
       var package = 'mixed';
       var price_mixed = req.body.price_mixed;
       var price_pdf = req.body.price_pdf;
