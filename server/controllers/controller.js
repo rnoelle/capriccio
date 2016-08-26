@@ -109,7 +109,7 @@ module.exports = {
       var composer_id = resp[0].id;
       db.create_submission(date_submitted, title, year_composed, composer_id,
         cover_url, score_url, parts_url, template, price_print, price_pdf,
-        price_mixed, package, accepted, date_accepted, function (err, resp) {
+        price_mixed, package2, accepted, date_accepted, function (err, resp) {
           if(err) {
             console.log('error', err);
           }
