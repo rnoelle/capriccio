@@ -145,6 +145,7 @@ app.post('/submissions/decision/:id/:acceptance', controller.acceptOrDenySubmiss
 // Delete
 app.delete('/cart/:id', controller.removeFromCart);
 
-app.listen(config.port, function () {
-  console.log("listening on ", config.port);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, function () {
+  console.log("listening on ", PORT);
 })
