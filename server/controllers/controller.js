@@ -79,23 +79,27 @@ module.exports = {
     var date_submitted = new Date();
     var title = req.body.title;
     var year_composed = req.body.year_composed;
+    var package;
+    var price_pdf;
+    var price_print;
+    var price_mixed;
     if (req.body.package == "pdf") {
-      var package = 'pdf';
-      var price_pdf = req.body.price_pdf;
-      var price_print = null;
-      var price_mixed = null;
+       package = 'pdf';
+       price_pdf = req.body.price_pdf;
+       price_print = null;
+       price_mixed = null;
     }
     else if (req.body.package == "print") {
-      var package = 'print';
-      var price_print = req.body.price_print;
-      var price_pdf = null;
-      var price_mixed = null;
+       package = 'print';
+       price_print = req.body.price_print;
+       price_pdf = null;
+       price_mixed = null;
     }
     else if (req.body.package == "mixed") {
-      var package = 'mixed';
-      var price_mixed = req.body.price_mixed;
-      var price_pdf = req.body.price_pdf;
-      var price_print = req.body.price_print;
+       package = 'mixed';
+       price_mixed = req.body.price_mixed;
+       price_pdf = req.body.price_pdf;
+       price_print = req.body.price_print;
     }
 
     var accepted = null;
