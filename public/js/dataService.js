@@ -182,6 +182,15 @@ angular.module('capriccio')
       })
     }
 
+    this.getUsers = function () {
+      return $http({
+        method: 'GET',
+        url: '/users'
+      }).then(function (response) {
+        return response.data;
+      })
+    }
+
     this.logout = function () {
       return $http({
         method: 'GET',
