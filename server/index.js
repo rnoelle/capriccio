@@ -145,6 +145,6 @@ app.post('/submissions/decision/:id/:acceptance', controller.acceptOrDenySubmiss
 // Delete
 app.delete('/cart/:id', controller.removeFromCart);
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(config.port, function () {
+  console.log("Server listening on ", config.port);
 })
