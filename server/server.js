@@ -49,11 +49,10 @@ function(email, password, done) {
 passport.use(new FacebookStrategy({
   clientID: config.facebookID,
   clientSecret: config.facebookSecret,
-  callbackURL: 'http://localhost:4531/auth/facebook/callback',
+  callbackURL: 'noellereid.io/auth/facebook/callback',
   profileFields: ['id', 'displayName', 'photos', 'email']
 }, function (accessToken, refreshToken, profile, done) {
   db.getUserByFacebookId([profile.id], function (err, user) {
-    console.log(user);
     if (user) user = user[0];
     if (!user) {
       console.log('Creating User');

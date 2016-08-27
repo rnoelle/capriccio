@@ -32,9 +32,7 @@ module.exports = {
       });
     },
     facebookSignin: function (accessToken, refreshToken, profile, done) {
-      console.log('facebook id', profile.id);
       db.getUserByFacebookId([profile.id], function (err, user) {
-        console.log('facebook id', profile.id);
         if (user) user = user[0];
         if (!user) {
           console.log('Creating User');
