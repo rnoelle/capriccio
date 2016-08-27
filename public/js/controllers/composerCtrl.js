@@ -13,8 +13,9 @@ angular.module('capriccio')
       }
       dataService.createComposer($scope.first_name, $scope.last_name, $scope.year_born,
         $scope.year_died, $scope.country_of_origin, $scope.user_id).then(function (response) {
-          console.log(response);
-          $state.go('publish');
+          dataService.getComp().then(function (response) {
+            return;
+          })
         })
     }
   })
