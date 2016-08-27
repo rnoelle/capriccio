@@ -7,6 +7,7 @@ angular.module('capriccio')
         totalPrice: '='
       },
       link: function (scope, element, attrs) {
+        var totalOrderPrice = scope.totalPrice;
         var handler = StripeCheckout.configure({
           key: 'pk_test_q7PtsCCbjWU88u3W834D5hSQ',
           image: 'assetts/img/thumb-100.png',
@@ -16,7 +17,7 @@ angular.module('capriccio')
           // Get the token ID to your server-side code for use.
             $http.post('/api/charge', {
               stripeToken: token.id,
-              price: {{scope.totalPrice}},
+              price: totalOrderPrice,
               email: token.email,
               stripeTokenCard: token.card
             })
