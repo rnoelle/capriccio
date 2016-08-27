@@ -20,5 +20,11 @@ module.exports = {
     {name:'submissionParts', maxCount: 1},
     {name:'preview', maxCount: 1},
     {name:'cover', maxCount: 1}
+  ]),
+  adminUpdate: uploading.fields([
+    {name: 'submissionScore', maxCount:1},
+    {name:'submissionParts', maxCount: 1},
+    {name:'preview', maxCount: 1},
+    {name:'cover', maxCount: 1}
   ])
 };
