@@ -81,7 +81,7 @@ module.exports = {
           res.status(303).send('unauthorized')
           return;
         } else {
-          res.status(200);
+          res.redirect('publish');
         }
       })
     }
