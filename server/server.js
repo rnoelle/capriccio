@@ -49,7 +49,7 @@ function(email, password, done) {
 passport.use(new FacebookStrategy({
   clientID: config.facebookID,
   clientSecret: config.facebookSecret,
-  callbackURL: 'noellereid.io/auth/facebook/callback',
+  callbackURL: 'http://noellereid.io/auth/facebook/callback',
   profileFields: ['id', 'displayName', 'photos', 'email']
 }, function (accessToken, refreshToken, profile, done) {
   db.getUserByFacebookId([profile.id], function (err, user) {
