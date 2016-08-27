@@ -15,6 +15,5 @@ angular.module('capriccio')
         $scope.year_died, $scope.country_of_origin, $scope.user_id).then(function (response) {
             $state.go('publish');
           })
-        })
-    }
+        }
   })
