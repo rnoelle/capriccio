@@ -5,7 +5,7 @@ angular.module('capriccio')
       template: '<button id="stripePayButton">Pay Now</button>',
       scope: {
         totalPrice: '='
-      }
+      },
       link: function (scope, element, attrs) {
         var handler = StripeCheckout.configure({
           key: 'pk_test_q7PtsCCbjWU88u3W834D5hSQ',

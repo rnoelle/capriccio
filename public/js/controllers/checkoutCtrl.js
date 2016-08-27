@@ -26,7 +26,6 @@ angular.module('capriccio')
         updateTotal(response);
       })
     }
-    $scope.
     // $scope.checkout = function() {
     //   console.log('HIT IT');
     //   var handler = StripeCheckout.configure({
