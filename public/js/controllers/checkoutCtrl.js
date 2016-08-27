@@ -26,22 +26,23 @@ angular.module('capriccio')
         updateTotal(response);
       })
     }
-    $scope.checkout = function() {
-      console.log('HIT IT');
-      var handler = StripeCheckout.configure({
-        key: 'pk_test_q7PtsCCbjWU88u3W834D5hSQ',
-        image: 'assetts/img/thumb-100.png',
-        locale: 'auto',
-        token: function () {
-
-        }
-      });
-      var stripeTotal = $scope.orderTotal * 100;
-      handler.open({
-        name: 'Stripe.com',
-        description: 'Music purchase',
-        amount: stripeTotal
-      });
-    }
+    $scope.
+    // $scope.checkout = function() {
+    //   console.log('HIT IT');
+    //   var handler = StripeCheckout.configure({
+    //     key: 'pk_test_q7PtsCCbjWU88u3W834D5hSQ',
+    //     image: 'assetts/img/thumb-100.png',
+    //     locale: 'auto',
+    //     token: function () {
+    //
+    //     }
+    //   });
+    //   var stripeTotal = $scope.orderTotal * 100;
+    //   handler.open({
+    //     name: 'Capriccio',
+    //     description: 'Music purchase',
+    //     amount: stripeTotal
+    //   });
+    // }
 
   })

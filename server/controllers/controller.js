@@ -176,13 +176,7 @@ module.exports = {
         db.purchase_lines.insert({order_id: order.id, work_id: item.id, quantity:1, package:'mixed'}, function (err, resp) {
           if (err) {
             res.status(500).send(err);
-          }
-          db.get_price_by_work(item.id, function (err, price) {
-            if (err) {
-              res.status(500).send(err);
-            }
-            prices.push(price);
-          })
+          }          
         })
       }
     })

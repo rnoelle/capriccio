@@ -27,7 +27,7 @@
             <input type="text" ng-model="country" placeholder="country">
         </form>
     </section>
-    <button type="button" ng-click="checkout()">Pay Now</button>
+    <stripe-button total-price="orderTotal"></stripe-button>
 </section>
 
 

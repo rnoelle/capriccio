@@ -129,6 +129,26 @@ app.post('/login', passport.authenticate('local', {failureRedirect: '/login', su
     console.log('logged in!');
     res.status(200).send();
   });
+// //Stripe Checkout
+app.post('/api/charge', function(req, res) {
+  // Get the credit card details submitted by the form
+  var token = req.body.stripeToken; // Using Express
+  // Create a charge: this will charge the user's card
+  var charge = stripe.charges.create({
+   amount: req.body.price, // Amount in cents
+   currency: "usd",
+   source: token,
+   description: "Music Purchase"
+  }, function(err, charge) {
+   if (err && err.type === 'StripeCardError') {
+     // The card has been declined
+   } else {
+     // Store order status
+     controller.createOrder();
+     res.status(200).send(charge);
+   }
+  });
+})
 // // Others
 app.post('/upload', uploads.composerUpload, controller.createSubmission);
 app.post('/update', uploads.adminUpdate, controller.updateWork,
