@@ -1,5 +1,5 @@
 angular.module('capriccio')
-  .controller('composerCtrl', function ($location, $scope, dataService) {
+  .controller('composerCtrl', function ($location, $scope, $state, dataService) {
     this.getCountries = function () {
       dataService.getCountries().then(function (response) {
         $scope.countries = response;
@@ -13,8 +13,7 @@ angular.module('capriccio')
       }
       dataService.createComposer($scope.first_name, $scope.last_name, $scope.year_born,
         $scope.year_died, $scope.country_of_origin, $scope.user_id).then(function (response) {
-          dataService.getComp().then(function (response) {
-            return;
+            $state.go('publish');
           })
         })
     }
