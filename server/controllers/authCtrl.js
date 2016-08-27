@@ -80,6 +80,8 @@ module.exports = {
         if (resp.length === 0) {
           res.status(303).send('unauthorized')
           return;
+        } else {
+          res.status(200);
         }
       })
     }

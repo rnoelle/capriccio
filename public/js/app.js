@@ -22,7 +22,7 @@ angular.module('capriccio')
         templateUrl: 'js/views/landing.html',
         controller: 'landingCtrl',
         link: function (scope, element, attrs) {
-        
+
         }
       })
       .state('login', {
