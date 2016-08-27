@@ -41,3 +41,5 @@ angular.module('capriccio')
         $state.go('mainProducts');
       });
       }
+    }
+  });
