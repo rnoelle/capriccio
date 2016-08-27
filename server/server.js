@@ -151,6 +151,7 @@ app.post('/api/charge', function(req, res) {
 })
 // // Others
 app.post('/upload', uploads.composerUpload, controller.createSubmission);
+app.post('/admin/upload', uploads.adminUpload, controller.createWork);
 app.post('/update', uploads.adminUpdate, controller.updateWork,
   function (req, res, next) {
     res.redirect('/updated');

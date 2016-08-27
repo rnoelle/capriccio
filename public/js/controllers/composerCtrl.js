@@ -8,7 +8,7 @@ angular.module('capriccio')
     }
     this.getCountries();
     $scope.createComposer = function () {
-      if (!$scope.year_died) {
+      if (!Number($scope.year_died)) {
         $scope.year_died = null;
       }
       dataService.createComposer($scope.first_name, $scope.last_name, $scope.year_born,
