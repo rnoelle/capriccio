@@ -1,5 +1,13 @@
 angular.module('capriccio')
   .controller('adminInventory', function ($scope, dataService, $state) {
+    this.getCountries = function () {
+      dataService.getCountries().then(function (response) {
+        $scope.countries = response;
+        $scope.country_of_origin = 'United States';
+      })
+    }
+    this.getCountries();
+    
     $scope.createComposer = function () {
       if (!Number($scope.year_died)) {
         $scope.year_died = null;
