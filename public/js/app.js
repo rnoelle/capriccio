@@ -146,7 +146,36 @@ angular.module('capriccio')
         url: '/add',
         templateUrl: 'js/views/admin/admin-inventory-add.html',
         controller: 'adminInventory',
-        resolve: adminResolve
+        resolve: adminResolve,
+        link: function (scope, element, attrs) {
+          scope.pdfOnly = function() {
+            $('#price-pdf').removeClass('hidden-left');
+            $('#price-print').addClass('hidden-left');
+            $('#price-mixed').addClass('hidden-left');
+          }
+          scope.printOnly = function() {
+            $('#price-print').removeClass('hidden-left');
+            $('#price-pdf').addClass('hidden-left');
+            $('#price-mixed').addClass('hidden-left');
+          }
+          scope.mixedPackage = function() {
+            $('#price-mixed').removeClass('hidden-left');
+            $('#price-pdf').removeClass('hidden-left');
+            $('#price-print').removeClass('hidden-left');
+          }
+          $('#score-file-upload').change(function () {
+            $('#scoreFile').val($('#score-file-upload')[0].files[0].name);
+          })
+          $('#parts-file-upload').change(function () {
+            $('#partsFile').val($('#parts-file-upload')[0].files[0].name);
+          })
+          $('#cover-file-upload').change(function () {
+            $('#coverFile').val($('#cover-file-upload')[0].files[0].name);
+          })
+          $('#preview-file-upload').change(function () {
+            $('#previewFile').val($('#preview-file-upload')[0].files[0].name);
+          })
+        }
       })
       .state('admin.inventory.delete', {
         url: '/delete',
