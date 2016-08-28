@@ -5,18 +5,19 @@ angular.module('capriccio')
         controller: "adminInventory",
         restrict: 'EA',
         link: function(scope, element, attrs) {
-            $('#score-file-upload').change(function () {
-              $('#scoreFile').val($('#score-file-upload')[0].files[0].name);
-            })
-
-            $('#parts-file-upload').change(function () {
-              $('#partsFile').val($('#parts-file-upload')[0].files[0].name);
-            })
-
-            $('#cover-file-upload').change(function () {
-              $('#coverFile').val($('#cover-file-upload')[0].files[0].name);
-            })
-
+          $('#score-file-upload').change(function () {
+            $('#adminScoreFile').val($('#admin-score-file-upload')[0].files[0].name);
+          })
+          $('#parts-file-upload').change(function () {
+            $('#adminPartsFile').val($('#admin-parts-file-upload')[0].files[0].name);
+          })
+          $('#cover-file-upload').change(function () {
+            $('#adminCoverFile').val($('#admin-cover-file-upload')[0].files[0].name);
+          })
+          $('#preview-file-upload').change(function () {
+            $('#adminPreviewFile').val($('#admin-preview-file-upload')[0].files[0].name);
+          })
+          
             scope.pdfOnly = function() {
               $('#price-pdf').removeClass('hidden-left');
               $('#price-print').addClass('hidden-left');
