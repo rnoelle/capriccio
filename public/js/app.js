@@ -164,16 +164,16 @@ angular.module('capriccio')
             $('#price-print').removeClass('hidden-left');
           }
           $('#score-file-upload').change(function () {
-            $('#scoreFile').val($('#score-file-upload')[0].files[0].name);
+            $('#adminScoreFile').val($('#admin-score-file-upload')[0].files[0].name);
           })
           $('#parts-file-upload').change(function () {
-            $('#partsFile').val($('#parts-file-upload')[0].files[0].name);
+            $('#adminPartsFile').val($('#admin-parts-file-upload')[0].files[0].name);
           })
           $('#cover-file-upload').change(function () {
-            $('#coverFile').val($('#cover-file-upload')[0].files[0].name);
+            $('#adminCoverFile').val($('#admin-cover-file-upload')[0].files[0].name);
           })
           $('#preview-file-upload').change(function () {
-            $('#previewFile').val($('#preview-file-upload')[0].files[0].name);
+            $('#adminPreviewFile').val($('#admin-preview-file-upload')[0].files[0].name);
           })
         }
       })
