@@ -165,9 +165,10 @@ module.exports = {
         var worknumber = req.body.worknumber;
         var style = req.body.style;
         var collection = req.body.collection;
+        var composer_id = req.body.composer_id;
         db.create_work(title, composer_id, instrumentation, catalog, worknumber, year_composed,
             style, score_url, cover_url, collection, package2, price_print, price_pdf,
-            price_mixed, parts_url, 
+            price_mixed, parts_url,
             function(err, resp) {
                 if (err) {
                     console.log('error', err);
