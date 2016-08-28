@@ -16,7 +16,7 @@
   <div class="product-card" ng-repeat="item in items | filter : mainFilter"
       ui-sref="productDetail({id:item.id})">
       <div class="product-card-wrapper hovereffect">
-        <img ng-src="{{item.cover_url}}" alt="" />
+        <img ng-src="{{item.scope_cover_url}}" alt="" />
         <div class="overlay">
           <h2>{{item.title}}</h3>
           <h4>{{item.composer_first}} {{item.composer_last}}</h4>

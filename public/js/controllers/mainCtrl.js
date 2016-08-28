@@ -4,7 +4,11 @@ angular.module('capriccio')
     $scope.mainFilter = {};
     function getProducts() {
       dataService.getProducts().then(function (response) {
-        $scope.items = response;
+        var items = response;
+        for (var = 0; i < items.length; i++) {
+          items[i].scope_cover_url = items[i].cover_url.slice(10);
+        }
+        $scope.items = items;
       })
     }
     getProducts();
