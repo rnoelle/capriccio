@@ -238,22 +238,19 @@ module.exports = {
                 res.status(500).send(err);
                 return;
             } else {
-            for (var item in req.session.cart) {
+            for (var i = 0; i < req.session.cart.length; i++) {
                 var prices = [];
-                console.log(item);
                 db.purchase_lines.insert({
                     order_id: order.id,
-                    work_id: item.id,
+                    work_id: req.session.cart[i].id,
                     quantity: 1,
                     package: 'mixed'
                 }, function(err, resp) {
                     if (err) {
                         res.status(500).send(err);
-                    } else {
-                      req.session.cart = [];
                     }
                 })
-            }
+            } req.session.cart = [];
           }
         })
     },

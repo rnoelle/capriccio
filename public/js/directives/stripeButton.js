@@ -1,5 +1,5 @@
 angular.module('capriccio')
-  .directive('stripeButton', function ($http, $state) {
+  .directive('stripeButton', function ($http, $state, $rootScope) {
     return {
       restrict: 'E',
       template: '<button id="stripePayButton">Pay Now</button>',
@@ -20,7 +20,10 @@ angular.module('capriccio')
               price: totalOrderPrice,
               email: token.email,
               stripeTokenCard: token.card
-            }).then($state.go('mainProducts'))
+            }).then(function () {
+              $rootScope.userCart = [];
+              $state.go('mainProducts');
+            })
           }
         })
         $('#stripePayButton').on('click', function(e) {
