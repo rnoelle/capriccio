@@ -227,7 +227,7 @@ module.exports = {
             })
     },
 
-    addOrder: function(req, res, next) {
+    createOrder: function(req, res, next) {
         var timeNow = newDate();
         db.purchases.insert({
             user_id: req.user.id,

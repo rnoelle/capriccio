@@ -26,8 +26,12 @@ angular.module('capriccio')
     $scope.removeItem = function (id) {
       console.log(id);
       dataService.removeFromCart(id).then(function (response) {
+        var items = response;
+        for (var i = 0; i < items.length; i++) {
+          items[i].scope_cover_url = items[i].cover_url.slice(10);
+        }
+        $scope.order = items;
         $rootScope.cart = response;
-        $scope.order = response;
         updateTotal(response);
       })
     }
