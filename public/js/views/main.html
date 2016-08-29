@@ -13,7 +13,7 @@
 
 
 <section class="product-box">
-  <div class="product-card" ng-repeat="item in items | filter : mainFilter"
+  <div class="product-card" ng-repeat="item in items | filter : mainFilter | orderBy: random"
       ui-sref="productDetail({id:item.id})">
       <div class="product-card-wrapper hovereffect">
         <img ng-src="{{item.scope_cover_url}}" alt="" />

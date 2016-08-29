@@ -28,6 +28,7 @@ aside {
 }
 .product-box {
   display: flex;
+  flex-wrap: wrap;
   padding-top: 5vh;
   padding-left: 15px;
 }
