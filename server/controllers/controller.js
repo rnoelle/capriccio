@@ -227,7 +227,7 @@ module.exports = {
             })
     },
 
-    createOrder: function(req, res, next) {
+    addOrder: function(req, res, next) {
         var timeNow = newDate();
         db.purchases.insert({
             user_id: req.user.id,
@@ -236,7 +236,7 @@ module.exports = {
             if (err) {
                 res.status(500).send(err);
                 return;
-            }
+            } else {
             for (var item in req.session.cart) {
                 var prices = [];
                 db.purchase_lines.insert({
@@ -250,6 +250,7 @@ module.exports = {
                     }
                 })
             }
+          }
         })
     },
 

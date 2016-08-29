@@ -144,7 +144,7 @@ app.post('/api/charge', function(req, res) {
      // The card has been declined
    } else {
      // Store order status
-     controller.createOrder();
+     controller.addOrder();
      res.status(200).send(charge);
    }
   });
