@@ -12,8 +12,13 @@ angular.module('capriccio')
 
     var getCart = function () {
       dataService.getCart().then(function (response) {
-        $scope.order = response;
-        updateTotal(response);
+        var items = response;
+        for (var i = 0; i < items.length; i++) {
+          items[i].scope_cover_url = items[i].cover_url.slice(10);
+        }
+        $scope.items = items;
+
+        updateTotal(items);
       })
     }
     getCart();

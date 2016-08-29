@@ -5,7 +5,7 @@
             <h6>Remove Item <i class="fa fa-times"></i></h6>
         </div>
         <div class="review-order-card-info">
-            <img ng-src="{{item.cover_url}}" alt="" />
+            <img ng-src="{{item.scope_cover_url}}" alt="" />
             <div class="review-info-info">
                 <h4>{{item.title}}</h4>
                 <h5>{{item.composer_first}} {{item.composer_last}}</h5>
@@ -14,7 +14,7 @@
         </div>
     </div>
     <hr>
-    <h4>Total: ${{orderTotal}}</h4>
+    <h4>Total: {{orderTotal | currency}}</h4>
     <section>
         <form class="address-form">
             <h4>Shipping Information:</h4>

@@ -1,5 +1,5 @@
 angular.module('capriccio')
-  .directive('stripeButton', function ($http) {
+  .directive('stripeButton', function ($http, $state) {
     return {
       restrict: 'E',
       template: '<button id="stripePayButton">Pay Now</button>',
@@ -23,7 +23,7 @@ angular.module('capriccio')
             })
           }
         })
-        $('#customButton').on('click', function(e) {
+        $('#stripePayButton').on('click', function(e) {
           // Open Checkout with further options:
           var stripeTotal = scope.totalPrice * 100;
 

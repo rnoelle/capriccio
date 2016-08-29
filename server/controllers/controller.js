@@ -113,7 +113,7 @@ module.exports = {
                     if (err) {
                         console.log('error', err);
                     }
-                    res.status(200).redirect('/#/publish');
+                    res.status(200).redirect('/#/profile');
 
                 });
         });
