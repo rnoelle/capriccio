@@ -5,7 +5,6 @@ angular.module('capriccio')
       dataService.getProduct(id).then(function (response) {
         var item = response;
         $scope.product = response;
-        console.log($scope.product);
         $scope.product.scope_cover_url = item.cover_url.slice(10);
         $scope.product.scope_preview_url = item.preview_url.slice(10);
       })

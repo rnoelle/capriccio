@@ -6,7 +6,11 @@ angular.module('capriccio')
         if (response.length < 1) {
           $scope.purchases = [{title: "Sorry, you haven't made any purchases."}]
         } else {
-          $scope.purchases = response;
+          var items = response;
+          for (var i = 0; i < items.length; i++) {
+            items[i].scope_cover_url = items[i].cover_url.slice(10);
+          }
+          $scope.purchases = items;
         }
       })
     }

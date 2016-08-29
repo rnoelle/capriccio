@@ -10,6 +10,8 @@ angular.module('capriccio')
                   console.log("Unauthorized: ", err);
                   if (err.status === 401) {
                       $state.go('login.login');
+                  } else if (err.status === 403) {
+                    $state.go('home')
                   }
               });
             }
