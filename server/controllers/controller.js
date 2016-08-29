@@ -234,11 +234,13 @@ module.exports = {
             order_date: timeNow
         }, function(err, order) {
             if (err) {
+                console.log(err);
                 res.status(500).send(err);
                 return;
             } else {
             for (var item in req.session.cart) {
                 var prices = [];
+                console.log(item);
                 db.purchase_lines.insert({
                     order_id: order.id,
                     work_id: item.id,
@@ -247,6 +249,8 @@ module.exports = {
                 }, function(err, resp) {
                     if (err) {
                         res.status(500).send(err);
+                    } else {
+                      req.session.cart = [];
                     }
                 })
             }
