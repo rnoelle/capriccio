@@ -1,5 +1,8 @@
 <section class="addReview">
   <button type="button" id="add-review-button" name="button">Add a Review...</button>
-  <star-rating class="hidden" value="review.rating" disabled="false"></star-rating>
-  <textarea class="hidden" rows="4" cols="50" placeholder="Add Review Here" ng-model="review.review"></textarea>
+  <form class="add-review-form hidden" ng-submit="addReview()">
+    <star-rating value="review.rating" disabled="false"></star-rating>
+    <textarea rows="4" cols="50" placeholder="Add Review Here" ng-model="review.review"></textarea>
+  </form>
+
 </section>

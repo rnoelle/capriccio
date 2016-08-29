@@ -25,7 +25,9 @@ module.exports = {
     addReview: function (req, res, next) {
       var id = req.params.id;
       db.reviews.insert({product_id: id, user_id: req.user.id,
-        rating: req.body.rating, review: req.body.review});
+        rating: req.body.rating, review: req.body.review}, function (err, row) {
+          res.json(row);
+        });
     },
 
     getCart: function(req, res, next) {
