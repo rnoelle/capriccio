@@ -15,6 +15,19 @@ module.exports = {
         });
     },
 
+    getReviews: function (req, res, next) {
+      var id = req.params.id;
+      db.read_reviews(id, function (err, reviews) {
+        res.json(reviews);
+      })
+    },
+
+    addReview: function (req, res, next) {
+      var id = req.params.id;
+      db.reviews.insert({product_id: id, user_id: req.user.id,
+        rating: req.body.rating, review: req.body.review});
+    },
+
     getCart: function(req, res, next) {
         if (!req.session.cart) {
             req.session.cart = [];

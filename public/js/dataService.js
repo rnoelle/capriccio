@@ -19,6 +19,15 @@ angular.module('capriccio')
       })
     }
 
+    this.getReviews = function (id) {
+      return $http({
+        method: 'GET',
+        url:`/reviews/${id}`
+      }).then(function (response) {
+        return response.data;
+      })
+    }
+
     this.getCart = function () {
       return $http({
         method: 'GET',

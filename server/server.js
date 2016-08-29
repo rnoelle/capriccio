@@ -113,6 +113,7 @@ app.get('/auth/logout', function(req, res) {
      //End Authentication
 app.get('/products', controller.getProducts);
 app.get('/product/:id', controller.getProduct);
+app.get('/reviews/:id', controller.getReviews);
 app.get('/profiles', controller.getProfile);
 app.get('/cart', controller.getCart);
 app.get('/submissions', controller.getSubmissions);
