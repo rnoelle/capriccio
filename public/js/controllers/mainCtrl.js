@@ -1,6 +1,9 @@
 angular.module('capriccio')
   .controller('mainCtrl', function ($scope, dataService) {
-
+    $scope.random = function() {
+        return 0.5 - Math.random();
+    }
+    
     $scope.mainFilter = {};
     function getProducts() {
       dataService.getProducts().then(function (response) {
