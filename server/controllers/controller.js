@@ -113,7 +113,7 @@ module.exports = {
                     if (err) {
                         console.log('error', err);
                     }
-                    res.status(200).send('submitted');
+                    res.status(200).redirect('/#/publish');
 
                 });
         });
@@ -173,7 +173,7 @@ module.exports = {
                 if (err) {
                     console.log('error', err);
                 }
-                res.status(200).send('submitted');
+                res.status(200).redirect('/#/admin/inventory');
 
             });
     },
