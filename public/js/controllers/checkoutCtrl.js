@@ -16,7 +16,7 @@ angular.module('capriccio')
         for (var i = 0; i < items.length; i++) {
           items[i].scope_cover_url = items[i].cover_url.slice(10);
         }
-        $scope.items = items;
+        $scope.order = items;
 
         updateTotal(items);
       })

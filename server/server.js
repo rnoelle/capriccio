@@ -9,7 +9,7 @@ const massive = require('massive');
 const fileUpload = require('express-fileupload');
 const multer = require('multer');
 const config = require('./config');
-
+const stripe = require('stripe')(config.testSecretKey);
 
 // Basic Setup
 const app = module.exports = express();

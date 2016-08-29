@@ -20,7 +20,7 @@ angular.module('capriccio')
               price: totalOrderPrice,
               email: token.email,
               stripeTokenCard: token.card
-            })
+            }).then($state.go('mainProducts'))
           }
         })
         $('#stripePayButton').on('click', function(e) {
