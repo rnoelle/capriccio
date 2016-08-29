@@ -7,7 +7,7 @@ $(window).scroll(function () {
     }
   if ($('#slide-in').offset().left > ($(window).width()/1.7)) {
     $('#slide-in').css({
-        'transform': 'translate(-'+ eTop /20 +'%, 0px)'
+        'transform': 'translate(-'+ eTop /25 +'%, 0px)'
       });
     }
   }
