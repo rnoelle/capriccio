@@ -6,7 +6,7 @@ angular.module('capriccio')
         var item = response;
         $scope.product = response;
         $scope.product.scope_cover_url = item.cover_url.slice(10);
-        $scope.product.scope_score_url = item.score_url.slice(10);
+        $scope.product.scope_preview_url = item.preview_url.slice(10);
       })
     }
     getProduct(thisProduct);
