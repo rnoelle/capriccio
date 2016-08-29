@@ -36,7 +36,8 @@ aside {
   height: 25vh;
   max-height: 350px;
   width: 25%;
-  max-width: 200px;
+  min-width: 7vw;
+  max-width: 250px;
   margin: 10px;
   box-shadow: 1px 1px 5px #555;
 }
