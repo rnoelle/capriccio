@@ -36,10 +36,10 @@ angular.module('capriccio')
         });
 
       // Close Checkout on page navigation:
-      $(window).on('popstate', function() {
-        handler.close();
-        $state.go('mainProducts');
-      });
+      // $(window).on('popstate', function() {
+      //   handler.close();
+      //   $state.go('mainProducts');
+      // });
       }
     }
   });
