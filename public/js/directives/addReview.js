@@ -20,6 +20,7 @@ angular.module('capriccio')
                             $state.go('login.login')
                         } else {
                             dataService.addReview($stateParams.id, $scope.review).then(function(response) {
+                              console.log(response);
                                 $('.review-box').prepend(`<div class="review-card">
                                   <star-rating disabled="true" value="${response.rating}"></star-rating>
                                   <h4>You said:</h4>
