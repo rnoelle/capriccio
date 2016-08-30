@@ -11,7 +11,7 @@ angular.module('capriccio')
             },
             controller: function($scope, $stateParams, $state, dataService) {
                 $scope.review = {};
-                $scope.review.rating = "";
+                $scope.review.rating;
 
                 $scope.addReview = function() {
                     dataService.getAuth().catch((err) => {
