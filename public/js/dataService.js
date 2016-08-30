@@ -28,10 +28,14 @@ angular.module('capriccio')
       })
     }
 
-    this.addReview = function (id) {
+    this.addReview = function (id, review) {
       return $http({
         method: 'POST',
-        url:`/reviews/${id}`
+        url:`/reviews/${id}`,
+        data: {
+          review: review.review,
+          rating: review.rating
+        }
       })
     }
 
