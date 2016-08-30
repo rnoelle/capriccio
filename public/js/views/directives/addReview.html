@@ -1,12 +1,12 @@
 <section class="addReview">
   <button type="button" id="add-review-button" name="button">Add a Review...</button>
-  <form class="add-review-form hidden" ng-submit="addReview()">
+  <form class="add-review-form hidden">
     <div class="dummy">
       <review-stars value="review.rating" disabled="false"></review-stars>
       <input type="hidden" name="dummy" value="">
     </div>
     <textarea rows="4" cols="50" placeholder="Add Review Here" ng-model="review.review"></textarea>
-    <input type="submit" name="Submit">
+    <input type="submit" name="Submit" ng-click="addReview()">
   </form>
 
 </section>

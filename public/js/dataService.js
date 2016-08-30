@@ -28,6 +28,13 @@ angular.module('capriccio')
       })
     }
 
+    this.addReview = function (id) {
+      return $http({
+        method: 'POST',
+        url:`/reviews/${id}`
+      })
+    }
+
     this.getCart = function () {
       return $http({
         method: 'GET',
@@ -36,6 +43,8 @@ angular.module('capriccio')
         return response.data;
       })
     }
+
+
 
     this.addToCart = function (product_id, quantity) {
       return $http({

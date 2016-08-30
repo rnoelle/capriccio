@@ -163,6 +163,7 @@ app.post('/composers', controller.createComposer);
 app.post('/cart', controller.addToCart, controller.getCart);
 app.post('/orders', controller.addOrder);
 app.post('/submissions/decision/:id/:acceptance', controller.acceptOrDenySubmission)
+app.post('/reviews/:id', controller.addReview)
 
 // Delete
 app.delete('/cart/:id', controller.removeFromCart);
