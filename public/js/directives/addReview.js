@@ -13,9 +13,8 @@ angular.module('capriccio')
         $scope.review = {};
 
         $scope.addReview = function() {
-          console.log('ran');
           dataService.getAuth().then(function (response) {
-            if (response === 401) {
+            if (response.status === 401) {
               $state.go('login.login')
             } else {
               dataService.addReview($stateParams.id, $scope.review).then(function (response) {
