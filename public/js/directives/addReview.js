@@ -13,10 +13,11 @@ angular.module('capriccio')
         $scope.review = {};
 
         $scope.addReview = function() {
-          dataService.getAuth().then(function (response) {
-            if (response.status === 401) {
-              $state.go('login.login')
-            } else {
+          dataService.getAuth().catch((err) => {
+              console.log("Unauthorized: ", err);
+              if (err.status === 401) {
+                  $state.go('login.login')
+                } else {
               dataService.addReview($stateParams.id, $scope.review).then(function (response) {
                 $('.review-box').prepend(`<div class="review-card">
                   <star-rating disabled="true" value="${response.rating}"></star-rating>
@@ -27,7 +28,8 @@ angular.module('capriccio')
                 </div>`)
               });
             }
-
+          }
+        )
           })
         }
       }
