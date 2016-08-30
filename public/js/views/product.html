@@ -28,7 +28,7 @@
 
 <add-review></add-review>
 <section class="review-box">
-  <div class="review-card" ng-repeat="review in reviews">
+  <div id="review-card" ng-repeat="review in reviews">
     <review-stars disabled="true" value="review.rating"></review-stars>
     <h4>{{review.first_name}} says:</h4>
     <p>
