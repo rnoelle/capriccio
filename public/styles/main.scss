@@ -110,8 +110,19 @@ aside {
   display: flex;
   justify-content: center;
   padding-top: 15vh;
+  margin: 0 10vw;
   img {
     height: 60vh;
+  }
+}
+.reviews {
+  width: 60%;
+  margin: 0 10vw;
+  input {
+    float: left;
+  }
+  h4 {
+    clear: both;
   }
 }
 .product-info-wrapper {
