@@ -1,5 +1,5 @@
 angular.module('capriccio')
-  .directive('addReview', function ($stateParams, $state) {
+  .directive('addReview', function ($stateParams, $state, dataService) {
     return {
       restrict: 'E',
       templateUrl: 'js/views/directives/addReview.html',
@@ -9,7 +9,7 @@ angular.module('capriccio')
         })
 
       },
-      controller: function ($scope) {
+      controller: function ($scope, $stateParams, $state, dataService) {
         $scope.review = {};
 
         function addReview() {
