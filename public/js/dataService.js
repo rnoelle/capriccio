@@ -37,7 +37,7 @@ angular.module('capriccio')
           rating: review.rating
         }
       }).then(function (response) {
-        return response.data[0];
+        return response;
       })
     }
 
