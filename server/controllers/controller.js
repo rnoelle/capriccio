@@ -24,8 +24,10 @@ module.exports = {
 
     addReview: function (req, res, next) {
       var id = req.params.id;
+      console.log('inserting review');
       db.reviews.insert({product_id: id, user_id: req.user.id,
         rating: req.body.rating, review: req.body.review}, function (err, row) {
+          console.log(err, row);
           res.json(row);
         });
     },
