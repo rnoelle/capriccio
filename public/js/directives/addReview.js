@@ -12,7 +12,7 @@ angular.module('capriccio')
       controller: function ($scope, $stateParams, $state, dataService) {
         $scope.review = {};
 
-        $scoep.addReview = function() {
+        $scope.addReview = function() {
           console.log('ran');
           dataService.getAuth().then(function (response) {
             if (response === 401) {
