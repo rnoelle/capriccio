@@ -13,6 +13,7 @@ angular.module('capriccio')
         $scope.review = {};
 
         function addReview() {
+          console.log('ran');
           dataService.getAuth().then(function (response) {
             if (response === 401) {
               $state.go('login.login')
