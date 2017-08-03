@@ -48,7 +48,7 @@ angular.module('capriccio')
         controller: 'mainCtrl'
       })
       .state('productDetail', {
-        url: '/battle/:playerOne/:playerTwo',
+        url: '/product/:id',
         templateUrl: 'js/views/product.html',
         controller: 'productCtrl'
       })

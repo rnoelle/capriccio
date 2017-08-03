@@ -129,6 +129,7 @@ aside {
 }
 .img-wrapper {
   position:relative;
+  min-width: 200px;
   &:hover {
     img {
       opacity: 1;
