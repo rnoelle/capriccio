@@ -48,10 +48,11 @@ angular.module('capriccio')
         controller: 'mainCtrl'
       })
       .state('productDetail', {
-        url: '/product/:id',
+        url: '/battle/:playerOne/:playerTwo',
         templateUrl: 'js/views/product.html',
         controller: 'productCtrl'
       })
+
       .state('checkout', {
         url: '/checkout',
         templateUrl: 'js/views/checkout.html',

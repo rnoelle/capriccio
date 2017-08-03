@@ -32,7 +32,6 @@ app.use(session({
    saveUninitialized: true
 }));
 app.use(passport.initialize());
-app.use(passport.session());
 
 passport.use(new LocalStrategy({usernameField: 'email'},
 function(email, password, done) {
@@ -43,13 +42,15 @@ function(email, password, done) {
     if (!password == user.password) { return done(null, false); }
     return done(null, user);
   });
+  //write a SQL query - selects user by username
+
 }
 ));
 
 passport.use(new FacebookStrategy({
   clientID: config.facebookID,
   clientSecret: config.facebookSecret,
-  callbackURL: 'http://noellereid.io/auth/facebook/callback',
+  callbackURL: 'http://capriccio.tech/auth/facebook/callback',
   profileFields: ['id', 'displayName', 'photos', 'email']
 }, function (accessToken, refreshToken, profile, done) {
   db.getUserByFacebookId([profile.id], function (err, user) {

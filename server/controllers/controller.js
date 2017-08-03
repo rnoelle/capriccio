@@ -2,7 +2,7 @@ var app = require('../server');
 var db = app.get('db');
 
 module.exports = {
-    getProducts: function(req, res, next) {
+    getProducts: (req, res, next) => {
         db.read_products(function(err, products) {
             res.json(products);
         });
